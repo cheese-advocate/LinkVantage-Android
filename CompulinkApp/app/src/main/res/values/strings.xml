@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">CompulinkApp</string>
+    <string name="app_name">Compulink Technologies</string>
+    <string name="login_title">Compulink Technologies</string>
+    <string name="logo">login page logo</string>
+    <string name="usernameInp">USERNAME</string>
+    <string name="loginButText">LOGIN</string>
+    <string name="passwordHint">PASSWORD</string>
+    <string name="registerBut">REGISTER</string>
+    <string name="linkvantage_title">LINKVANTAGE</string>
+    <string name="forgot_pw">FORGOT PASSWORD?</string>
 </resources>
