@@ -54,12 +54,12 @@
         android:hint="@string/usernameInp"
         android:inputType="textPersonName"
         android:textColor="#F3F3F3"
-        android:textColorHint="#F3F3F3"
+        android:textColorHint="#B4F3F3F3"
         app:layout_constraintEnd_toEndOf="@+id/login_container"
         app:layout_constraintTop_toBottomOf="@+id/compu_logo" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/pwInp"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -69,12 +69,12 @@
         android:hint="@string/passwordHint"
         android:inputType="textPassword"
         android:textColor="#F3F3F3"
-        android:textColorHint="#F3F3F3"
+        android:textColorHint="#B4F3F3F3"
         app:layout_constraintEnd_toEndOf="@+id/login_container"
         app:layout_constraintTop_toBottomOf="@+id/usernameInput" />
 
     <Button
-        android:id="@+id/loginSubmit"
+        android:id="@+id/loginBut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -88,10 +88,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/login_container"
         app:layout_constraintStart_toStartOf="@+id/login_container"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/pwInp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/registerBut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -104,10 +104,10 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@+id/login_container"
         app:layout_constraintStart_toStartOf="@+id/login_container"
-        app:layout_constraintTop_toBottomOf="@+id/loginSubmit" />
+        app:layout_constraintTop_toBottomOf="@+id/loginBut" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/linkvantageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_container" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/forgortPwLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
@@ -134,7 +134,7 @@
         app:layout_constraintStart_toStartOf="@+id/login_container" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/account_ico"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="30dp"
@@ -144,13 +144,13 @@
         app:srcCompat="@drawable/ic_account" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/lock_ico"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/pwInp"
+        app:layout_constraintTop_toBottomOf="@+id/account_ico"
         app:srcCompat="@drawable/ic_lock" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

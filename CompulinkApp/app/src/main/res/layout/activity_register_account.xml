@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:isScrollContainer="true"
+    android:background="@drawable/android_background"
+    tools:context=".RegisterAccount">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="729dp"
+        tools:context=".RegisterAccount"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/registerTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/registerBut"
+            android:textAlignment="center"
+            android:textColor="#F3F3F3"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/clientOptionBut"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/client_option_txt"
+            android:textColor="#F3F3F3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+        <Button
+            android:id="@+id/companyOptionBut"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/grey_rounded_button"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/company_option_txt"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+        <TextView
+            android:id="@+id/contactsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/contacts_title_txt"
+            android:textAlignment="center"
+            android:textColor="#F3F3F3"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clientOptionBut" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="370dp"
+            android:layout_height="400dp"
+            android:layout_marginTop="8dp"
+            android:background="#CC373741"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contactsTitle" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/contact_container_title"
+            android:textAlignment="center"
+            android:textColor="#03AAFB"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toTopOf="@+id/view" />
+
+        <EditText
+            android:id="@+id/usernameRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/usernameInp"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+        <EditText
+            android:id="@+id/passwordRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/passwordHint"
+            android:inputType="textPassword"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/usernameRegInp" />
+
+        <EditText
+            android:id="@+id/firstNameInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/first_name_inp_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegInp" />
+
+        <EditText
+            android:id="@+id/lastNameInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/last_name_inp_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameInp" />
+
+        <EditText
+            android:id="@+id/emailRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/email_inp"
+            android:inputType="textEmailAddress"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/lastNameInp" />
+
+        <EditText
+            android:id="@+id/phoneRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:hint="@string/phone_number_reg_inp"
+            android:inputType="phone"
+            app:layout_constraintEnd_toEndOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/emailRegInp" />
+
+        <ImageView
+            android:id="@+id/usernameIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/usernameRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/textView4"
+            app:srcCompat="@drawable/ic_account" />
+
+        <ImageView
+            android:id="@+id/passwordIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/passwordRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/usernameIco"
+            app:srcCompat="@drawable/ic_lock" />
+
+        <ImageView
+            android:id="@+id/emailIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/emailRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:srcCompat="@drawable/ic_email" />
+
+        <ImageView
+            android:id="@+id/firstNameIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/firstNameInp"
+            app:layout_constraintTop_toBottomOf="@+id/passwordIco"
+            app:srcCompat="@drawable/ic_details" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/lastNameInp"
+            app:layout_constraintTop_toBottomOf="@+id/firstNameIco"
+            app:srcCompat="@drawable/ic_details" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/phoneRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/emailIco"
+            app:srcCompat="@drawable/ic_phone" />
+
+        <Button
+            android:id="@+id/addContactBut"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="21dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/add_another_contact_btn_txt"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/address_reg_title"
+            android:textAlignment="center"
+            android:textColor="#F3F3F3"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addContactBut" />
+
+        <View
+            android:id="@+id/addressRegContainer"
+            android:layout_width="370dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="8dp"
+            android:background="#CC373741"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+        <EditText
+            android:id="@+id/streetNumRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/street_number_reg_txt"
+            android:inputType="number"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toTopOf="@+id/addressRegContainer" />
+
+        <EditText
+            android:id="@+id/adressRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/street_name_reg_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toBottomOf="@+id/streetNumRegInp" />
+
+        <EditText
+            android:id="@+id/citySuburbRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/city_suburb_reg_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toBottomOf="@+id/adressRegInp" />
+
+        <EditText
+            android:id="@+id/postalCodeRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/postal_code_reg_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toBottomOf="@+id/citySuburbRegInp" />
+
+        <EditText
+            android:id="@+id/additionalInfoRegInp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:fontFamily="@font/montserrat"
+            android:hint="@string/additional_information_reg_txt"
+            android:inputType="textPersonName"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toBottomOf="@+id/postalCodeRegInp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:background="@drawable/rounded_button"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/register_account_btn_txt"
+            android:textColor="#F3F3F3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressRegContainer" />
+
+        <ImageView
+            android:id="@+id/streetNumIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/streetNumRegInp"
+            app:layout_constraintTop_toTopOf="@+id/addressRegContainer"
+            app:srcCompat="@drawable/ic_location" />
+
+        <ImageView
+            android:id="@+id/streetNameIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/adressRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/streetNumIco"
+            app:srcCompat="@drawable/ic_location" />
+
+        <ImageView
+            android:id="@+id/citySuburbIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/citySuburbRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/streetNameIco"
+            app:srcCompat="@drawable/ic_house" />
+
+        <ImageView
+            android:id="@+id/postalCodeIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/postalCodeRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/citySuburbIco"
+            app:srcCompat="@drawable/ic_email" />
+
+        <ImageView
+            android:id="@+id/additionalInfoIco"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/additionalInfoRegInp"
+            app:layout_constraintTop_toBottomOf="@+id/postalCodeIco"
+            app:srcCompat="@drawable/ic_info" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

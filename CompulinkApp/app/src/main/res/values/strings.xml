@@ -8,4 +8,27 @@
     <string name="registerBut">REGISTER</string>
     <string name="linkvantage_title">LINKVANTAGE</string>
     <string name="forgot_pw">FORGOT PASSWORD?</string>
+    <string name="recover_password_title">RECOVER PASSWORD</string>
+    <string name="email_inp">EMAIL</string>
+    <string name="back_to_login_txt">RETURN TO LOGIN</string>
+    <string name="submit_reset_request_txt">SUBMIT RESET REQUEST</string>
+    <string name="client_option_txt">CLIENT</string>
+    <string name="company_option_txt">COMPANY</string>
+    <string name="contacts_title_txt">CONTACTS</string>
+    <string name="contact_container_title">CONTACT 1</string>
+    <string name="first_name_inp_txt">FIRST NAME</string>
+    <string name="last_name_inp_txt">LAST NAME</string>
+    <string name="phone_number_reg_inp">PHONE NUMBER</string>
+    <string name="add_another_contact_btn_txt">ADD ANOTHER CONTACT</string>
+    <string name="address_reg_title">ADDRESS</string>
+    <string name="street_number_reg_txt">STREET NUMBER</string>
+    <string name="street_name_reg_txt">STREET NAME</string>
+    <string name="city_suburb_reg_txt">CITY/SUBURB</string>
+    <string name="postal_code_reg_txt">POSTAL CODE</string>
+    <string name="additional_information_reg_txt">ADDITIONAL INFORMATION</string>
+    <string name="register_account_btn_txt">REGISTER ACCOUNT</string>
+    <string-array name="password_recovery_options">
+        <item>TEXT OTP</item>
+        <item>RESET PASSWORD</item>
+    </string-array>
 </resources>
