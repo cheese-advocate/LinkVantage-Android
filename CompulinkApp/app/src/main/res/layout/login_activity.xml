@@ -60,7 +60,8 @@
         android:textColorHint="#B4F3F3F3"
         app:layout_constraintEnd_toEndOf="@+id/login_container"
         app:layout_constraintStart_toEndOf="@+id/account_ico"
-        app:layout_constraintTop_toBottomOf="@+id/compu_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/compu_logo"
+        android:autofillHints="Username" />
 
     <EditText
         android:id="@+id/pwInp"

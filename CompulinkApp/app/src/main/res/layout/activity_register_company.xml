@@ -79,7 +79,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/companyNameContainer"
             app:layout_constraintEnd_toEndOf="@+id/companyNameContainer"
             app:layout_constraintStart_toStartOf="@+id/companyNameContainer"
-            app:layout_constraintTop_toTopOf="@+id/companyNameContainer" />
+            app:layout_constraintTop_toTopOf="@+id/companyNameContainer"
+            android:autofillHints="Company Name"/>
 
         <TextView
             android:id="@+id/contactsTitle"
@@ -136,7 +137,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/usernameIco"
-            app:layout_constraintTop_toBottomOf="@+id/contactTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/contactTitle"
+            android:autofillHints="Username"/>
 
         <EditText
             android:id="@+id/passwordRegInp"
@@ -168,7 +170,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/firstNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/passwordRegInp" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegInp"
+            android:autofillHints="Name"/>
 
         <EditText
             android:id="@+id/lastNameInp"
@@ -184,7 +187,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/lastNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/firstNameInp" />
+            app:layout_constraintTop_toBottomOf="@+id/firstNameInp"
+            android:autofillHints="Last Name" />
 
         <EditText
             android:id="@+id/emailRegInp"
@@ -200,7 +204,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/emailIco"
-            app:layout_constraintTop_toBottomOf="@+id/lastNameInp" />
+            app:layout_constraintTop_toBottomOf="@+id/lastNameInp"
+            android:autofillHints="Email" />
 
         <EditText
             android:id="@+id/phoneRegInp"
@@ -216,7 +221,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/contactView"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/emailRegInp" />
+            app:layout_constraintTop_toBottomOf="@+id/emailRegInp"
+            android:autofillHints="Phone number" />
 
         <ImageView
             android:id="@+id/usernameIco"
@@ -310,7 +316,7 @@
         <View
             android:id="@+id/addressRegContainer"
             android:layout_width="0dp"
-            android:layout_height="300dp"
+            android:layout_height="350dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
@@ -333,7 +339,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/streetNumIco"
-            app:layout_constraintTop_toBottomOf="@+id/addressContainerTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/addressContainerTitle"
+            android:autofillHints="Street number" />
 
         <EditText
             android:id="@+id/adressRegInp"
@@ -349,7 +356,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/streetNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/streetNumRegInp" />
+            app:layout_constraintTop_toBottomOf="@+id/streetNumRegInp"
+            android:autofillHints="Street name" />
 
         <EditText
             android:id="@+id/citySuburbRegInp"
@@ -365,7 +373,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/citySuburbIco"
-            app:layout_constraintTop_toBottomOf="@+id/adressRegInp" />
+            app:layout_constraintTop_toBottomOf="@+id/adressRegInp"
+            android:autofillHints="Suburb" />
 
         <EditText
             android:id="@+id/postalCodeRegInp"
@@ -381,7 +390,8 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/postalCodeIco"
-            app:layout_constraintTop_toBottomOf="@+id/citySuburbRegInp" />
+            app:layout_constraintTop_toBottomOf="@+id/citySuburbRegInp"
+            android:autofillHints="Postal Code" />
 
         <EditText
             android:id="@+id/additionalInfoRegInp"
@@ -408,6 +418,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/rounded_button"
+            android:fontFamily="@font/montserrat"
             android:text="ADD SITE"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/addressRegContainer" />
@@ -484,8 +495,9 @@
             android:id="@+id/addressContainerTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/montserrat"
-            android:text="Address 1"
+            android:text="ADDRESS 1"
             android:textColor="#03AAFB"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
