@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/grey_rounded_button"
             android:fontFamily="@font/montserrat"
             android:text="@string/client_option_txt"
             android:textColor="#F3F3F3"
@@ -48,12 +48,38 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
-            android:background="@drawable/grey_rounded_button"
+            android:background="@drawable/rounded_button"
             android:fontFamily="@font/montserrat"
             android:text="@string/company_option_txt"
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
+
+        <View
+            android:id="@+id/companyNameContainer"
+            android:layout_width="0dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:background="#CC373741"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/companyOptionBut" />
+
+        <EditText
+            android:id="@+id/CompanyName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/montserrat"
+            android:hint="COMPANY NAME"
+            app:layout_constraintBottom_toBottomOf="@+id/companyNameContainer"
+            app:layout_constraintEnd_toEndOf="@+id/companyNameContainer"
+            app:layout_constraintStart_toStartOf="@+id/companyNameContainer"
+            app:layout_constraintTop_toTopOf="@+id/companyNameContainer" />
 
         <TextView
             android:id="@+id/contactsTitle"
@@ -67,7 +93,7 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/clientOptionBut" />
+            app:layout_constraintTop_toBottomOf="@+id/companyNameContainer" />
 
         <View
             android:id="@+id/contactView"
@@ -307,7 +333,7 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/streetNumIco"
-            app:layout_constraintTop_toTopOf="@+id/addressRegContainer" />
+            app:layout_constraintTop_toBottomOf="@+id/addressContainerTitle" />
 
         <EditText
             android:id="@+id/adressRegInp"
@@ -376,10 +402,21 @@
             app:layout_constraintTop_toBottomOf="@+id/postalCodeRegInp" />
 
         <Button
+            android:id="@+id/addSiteBut"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/rounded_button"
+            android:text="ADD SITE"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressRegContainer" />
+
+        <Button
             android:id="@+id/registerBut"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/rounded_button"
             android:fontFamily="@font/montserrat"
@@ -389,7 +426,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addressRegContainer" />
+            app:layout_constraintTop_toBottomOf="@+id/addSiteBut" />
 
         <ImageView
             android:id="@+id/streetNumIco"
@@ -398,7 +435,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/addressRegContainer"
-            app:layout_constraintTop_toTopOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toBottomOf="@+id/addressContainerTitle"
             app:srcCompat="@drawable/ic_location" />
 
         <ImageView
@@ -443,7 +480,20 @@
             app:layout_constraintTop_toBottomOf="@+id/postalCodeIco"
             app:srcCompat="@drawable/ic_info" />
 
+        <TextView
+            android:id="@+id/addressContainerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="Address 1"
+            android:textColor="#03AAFB"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
+            app:layout_constraintStart_toStartOf="@+id/addressRegContainer"
+            app:layout_constraintTop_toTopOf="@+id/addressRegContainer" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

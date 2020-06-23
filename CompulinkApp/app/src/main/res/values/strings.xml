@@ -19,7 +19,7 @@
     <string name="first_name_inp_txt">FIRST NAME</string>
     <string name="last_name_inp_txt">LAST NAME</string>
     <string name="phone_number_reg_inp">PHONE NUMBER</string>
-    <string name="add_another_contact_btn_txt">ADD ANOTHER CONTACT</string>
+    <string name="add_another_contact_btn_txt">ADD CONTACT</string>
     <string name="address_reg_title">ADDRESS</string>
     <string name="street_number_reg_txt">STREET NUMBER</string>
     <string name="street_name_reg_txt">STREET NAME</string>
@@ -31,4 +31,8 @@
         <item>TEXT OTP</item>
         <item>RESET PASSWORD</item>
     </string-array>
+    <string name="title_activity_dashboard">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

@@ -26,6 +26,7 @@
         android:layout_marginTop="32dp"
         android:fontFamily="@font/montserrat"
         android:text="@string/linkvantage_title"
+        android:textColor="#F3F3F3"
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +39,7 @@
         android:layout_marginTop="150dp"
         android:fontFamily="@font/montserrat"
         android:text="by"
+        android:textColor="#F3F3F3"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +47,7 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
