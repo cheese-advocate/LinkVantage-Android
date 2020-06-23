@@ -16,27 +16,26 @@ public class RegisterAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
 
-        // - Assigning Inputs - Start
-
+ // - Assigning Inputs - Start
         // - Contact Information - Start
-        final TextView username = (TextView) findViewById(R.id.usernameRegInp);
-        final TextView password = (TextView) findViewById(R.id.passwordRegInp);
-        final TextView firstname = (TextView) findViewById(R.id.firstNameInp);
-        final TextView lastname = (TextView) findViewById(R.id.lastNameInp);
-        final TextView email = (TextView) findViewById(R.id.emailRegInp);
-        final TextView phone = (TextView) findViewById(R.id.phoneRegInp);
+        final TextView username =   (TextView) findViewById(R.id.usernameRegInp);
+        final TextView password =   (TextView) findViewById(R.id.passwordRegInp);
+        final TextView firstname =  (TextView) findViewById(R.id.firstNameInp);
+        final TextView lastname =   (TextView) findViewById(R.id.lastNameInp);
+        final TextView email =      (TextView) findViewById(R.id.emailRegInp);
+        final TextView phone =      (TextView) findViewById(R.id.phoneRegInp);
         // - Contact Information - End
         // - Address Information - Start
-        final TextView number = (TextView) findViewById(R.id.streetNumRegInp);
-        final TextView name = (TextView) findViewById(R.id.adressRegInp); //Note 1 'd' - Needs revising
-        final TextView city = (TextView) findViewById(R.id.citySuburbRegInp);
-        final TextView postal = (TextView) findViewById(R.id.postalCodeRegInp);
-        final TextView addInfo = (TextView) findViewById(R.id.additionalInfoRegInp);
+        final TextView number =     (TextView) findViewById(R.id.streetNumRegInp);
+        final TextView name =       (TextView) findViewById(R.id.adressRegInp); //Note 1 'd' - Needs revising
+        final TextView city =       (TextView) findViewById(R.id.citySuburbRegInp);
+        final TextView postal =     (TextView) findViewById(R.id.postalCodeRegInp);
+        final TextView addInfo =    (TextView) findViewById(R.id.additionalInfoRegInp);
         // - Address Information - End
-        // - Assigning Inputs - End
+ // - Assigning Inputs - End
 
         //Register Button Code - Start
-        Button regBut = (Button) findViewById(R.id.registerBut);
+        Button regBut =             (Button) findViewById(R.id.registerBut);
 
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,12 +111,12 @@ public class RegisterAccount extends AppCompatActivity {
                     toastPrint = helper.appendToast(toastPrint ,"First Name - Should not be empty." );
                     validity = helper.falsify();
                 } else {
-                    if (helper.lengthCheckMax(firstname , 18).equals("true")){
+                    if (helper.lengthCheckMax(firstname , 18).equals("false")){
                         toastPrint = helper.appendToast(toastPrint ,"First Name - Should not exceed 18 characters." );
                         validity = helper.falsify();
                     } else{
                         if(helper.containsInt(firstname).equals("true")){
-                            toastPrint = helper.appendToast(toastPrint ,"First Name - Should not exceed 18 characters." );
+                            toastPrint = helper.appendToast(toastPrint ,"First Name - Should not contain an integer." );
                             validity = helper.falsify();
                         }
                     }
@@ -256,14 +255,38 @@ public class RegisterAccount extends AppCompatActivity {
           //Address Validation - Start
  //Validation - End
 
-//Print Validity - Start
-                if(validity.equals("true")){
-                    toastPrint = "Successfully Validated - Registering Account.";
+//Validity True - Start
+
+
+                //Constructing Post Variable - Start
+                String postVar = "RegisterClient:";
+                postVar = postVar           + "username"    + username.getText().toString();
+                postVar = postVar + "_"     + "password"    + password.getText().toString();
+                postVar = postVar + "_"     + "firstName"   + firstname.getText().toString();
+                postVar = postVar + "_"     + "lastName"    + lastname.getText().toString();
+                postVar = postVar + "_"     + "email"       + email.getText().toString();
+                postVar = postVar + "_"     + "phone"       + phone.getText().toString();
+
+                postVar = postVar + "_"     + "number"      + number.getText().toString();
+                postVar = postVar + "_"     + "name"        + name.getText().toString();
+                postVar = postVar + "_"     + "city"        + phone.getText().toString();
+                postVar = postVar + "_"     + "postal"      + postal.getText().toString();
+                postVar = postVar + "_"     + "addInfo"     + addInfo.getText().toString();
+                //Constructing Post Variable - End
+
+                if(validity.equals("true")){ //
+
+                    toastPrint = "Successfully Validated - Registering Account." + postVar;
+
+                //Post Process - Start
+
+                //Post Process - End
                 }
 
                 Toast toast = Toast.makeText(context, toastPrint, durationToast);
                 toast.show();
-//Print Validity - End
+
+//Validity True - End
 
             }
         });//Register Button Code - End
