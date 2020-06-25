@@ -14,7 +14,7 @@
     <string name="submit_reset_request_txt">SUBMIT RESET REQUEST</string>
     <string name="client_option_txt">CLIENT</string>
     <string name="company_option_txt">COMPANY</string>
-    <string name="contacts_title_txt">CONTACTS</string>
+    <string name="contacts_title_txt">CONTACT</string>
     <string name="contact_container_title">CONTACT 1</string>
     <string name="first_name_inp_txt">FIRST NAME</string>
     <string name="last_name_inp_txt">LAST NAME</string>

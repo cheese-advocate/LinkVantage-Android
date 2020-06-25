@@ -72,7 +72,7 @@
         <View
             android:id="@+id/contactView"
             android:layout_width="0dp"
-            android:layout_height="400dp"
+            android:layout_height="345dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
@@ -82,20 +82,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactsTitle" />
 
-        <TextView
-            android:id="@+id/contactTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/contact_container_title"
-            android:textAlignment="center"
-            android:textColor="#03AAFB"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/contactView"
-            app:layout_constraintStart_toStartOf="@+id/contactView"
-            app:layout_constraintTop_toTopOf="@+id/contactView" />
-
         <EditText
             android:id="@+id/usernameRegInp"
             android:layout_width="0dp"
@@ -103,6 +89,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Username"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/usernameInp"
@@ -110,8 +97,7 @@
             android:textColor="#F3F3F3"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/usernameIco"
-            app:layout_constraintTop_toBottomOf="@+id/contactTitle"
-            android:autofillHints="Username" />
+            app:layout_constraintTop_toTopOf="@+id/contactView" />
 
         <EditText
             android:id="@+id/passwordRegInp"
@@ -187,15 +173,15 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
+            android:autofillHints="Phone number"
             android:ems="10"
             android:hint="@string/phone_number_reg_inp"
             android:inputType="phone"
             app:layout_constraintBottom_toBottomOf="@+id/contactView"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/emailRegInp"
-            android:autofillHints="Phone number" />
+            app:layout_constraintTop_toBottomOf="@+id/emailRegInp" />
 
         <ImageView
             android:id="@+id/usernameIco"
@@ -204,7 +190,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="@+id/contactView"
-            app:layout_constraintTop_toBottomOf="@+id/contactTitle"
+            app:layout_constraintTop_toTopOf="@+id/contactView"
             app:srcCompat="@drawable/ic_account" />
 
         <ImageView
@@ -222,7 +208,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="@+id/contactView"
             app:layout_constraintTop_toBottomOf="@+id/lastNameIco"
             app:srcCompat="@drawable/ic_email" />
@@ -242,7 +228,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="22dp"
             app:layout_constraintStart_toStartOf="@+id/contactView"
             app:layout_constraintTop_toBottomOf="@+id/firstNameIco"
             app:srcCompat="@drawable/ic_details" />
@@ -253,30 +239,17 @@
             android:layout_height="35dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="18dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/contactView"
             app:layout_constraintStart_toStartOf="@+id/contactView"
             app:layout_constraintTop_toBottomOf="@+id/emailIco"
             app:srcCompat="@drawable/ic_phone" />
 
-        <Button
-            android:id="@+id/addContactBut"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="24dp"
-            android:background="@drawable/rounded_button"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/add_another_contact_btn_txt"
-            android:textColor="#F3F3F3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/contactView" />
-
         <TextView
             android:id="@+id/addressTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/montserrat"
             android:text="@string/address_reg_title"
             android:textAlignment="center"
@@ -284,7 +257,7 @@
             android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/addContactBut" />
+            app:layout_constraintTop_toBottomOf="@+id/contactView" />
 
         <View
             android:id="@+id/addressRegContainer"
