@@ -39,5 +39,15 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(registerPageOpen);
             }
         });
+
+        Button login = (Button) findViewById(R.id.loginBut);
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dash = new Intent(v.getContext(), Dash.class);
+                startActivity(dash);
+            }
+        });
     }
 }
