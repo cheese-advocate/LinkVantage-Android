@@ -136,6 +136,15 @@ public class InputValidatorHelper {
         return message;
     }
 
+    public boolean validPassword(String pw)
+    {
+        String pwRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
+        if(pw.trim().matches(pwRegex))
+        {
+            return true;
+        }
+        else return false;
+    }
     // - InputValidatorHelper - End
 
 }
