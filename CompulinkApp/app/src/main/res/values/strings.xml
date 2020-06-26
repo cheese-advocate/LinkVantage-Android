@@ -28,8 +28,8 @@
     <string name="additional_information_reg_txt">ADDITIONAL INFORMATION</string>
     <string name="register_account_btn_txt">REGISTER ACCOUNT</string>
     <string-array name="password_recovery_options">
-        <item>TEXT OTP</item>
-        <item>RESET PASSWORD</item>
+        <item>Web OTP</item>
+        <item>Email OTP</item>
     </string-array>
     <string name="title_activity_dashboard">MainActivity</string>
     <string name="title_home">Home</string>

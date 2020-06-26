@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Dash"></activity>
+        <activity android:name=".NewPassword"></activity>
+        <activity android:name=".Dash" />
         <activity android:name=".RegisterCompanyActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterAccount" />
