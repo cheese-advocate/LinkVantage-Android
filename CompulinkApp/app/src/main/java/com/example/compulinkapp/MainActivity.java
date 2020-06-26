@@ -13,6 +13,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        /**
+         * The method below ensures the splash screen runs only the specified
+         * time before navigating to the login activity
+         */
         setContentView(R.layout.activity_main);
         new Handler().postDelayed(new Runnable() {
             @Override

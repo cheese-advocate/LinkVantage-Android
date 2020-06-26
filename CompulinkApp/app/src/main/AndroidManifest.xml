@@ -11,7 +11,8 @@
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity android:name=".NewPassword"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".Dash" />
+        <activity android:name=".Dash"
+            android:theme="@style/popup_theme" />
         <activity android:name=".RegisterCompanyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity android:name=".LoginActivity"

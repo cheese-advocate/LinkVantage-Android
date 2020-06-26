@@ -39,6 +39,10 @@ public class NewPassword extends AppCompatActivity {
         });
     }
 
+    /**
+     * Input validation method for the newly entered password
+     * @return String message with result - Valid, Empty, No Match, Invalid
+     */
     private String newPasswordValidation()
     {
         String msg;

@@ -57,6 +57,10 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Method to perform basic input validation on login
+     * @return true or false based on if validation passes
+     */
     private boolean loginValidation()
     {
         boolean valid;
