@@ -8,14 +8,20 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".NewPassword"></activity>
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity android:name=".NewPassword"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity android:name=".Dash" />
-        <activity android:name=".RegisterCompanyActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterAccount" />
-        <activity android:name=".ForgotPassword" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegisterCompanyActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".RegisterAccount"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".ForgotPassword"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
