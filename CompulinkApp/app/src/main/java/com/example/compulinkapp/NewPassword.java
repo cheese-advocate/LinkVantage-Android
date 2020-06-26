@@ -45,7 +45,6 @@ public class NewPassword extends AppCompatActivity {
      */
     private String newPasswordValidation()
     {
-        String msg;
         InputValidatorHelper helper = new InputValidatorHelper();
         EditText newPassword = findViewById(R.id.new_password_inp);
         EditText newPasswordConfirm = findViewById(R.id.new_password_inp_confirm);
@@ -55,24 +54,14 @@ public class NewPassword extends AppCompatActivity {
             return "Empty";
         }
 
-        if(helper.validPassword(newPassword.getText().toString()))
+        if(helper.validPassword(newPassword.getText().toString()) && helper.validPassword(newPasswordConfirm.getText().toString()))
         {
-            msg = "Valid";
+            if(newPassword.getText().toString().trim().equals(newPasswordConfirm.getText().toString().trim()))
+            {
+                return "Valid";
+            }
+            else return "No Match";
         }
-        else msg = "Invalid";
-
-        if(helper.validPassword(newPasswordConfirm.getText().toString()))
-        {
-            msg = "Valid";
-        }
-        else msg = "Invalid";
-
-        if(newPassword.getText().toString().trim() == newPasswordConfirm.getText().toString().trim())
-        {
-            msg = "Match";
-        }
-        else msg = "No Match";
-
-        return msg;
+        else return "Invalid";
     }
 }
