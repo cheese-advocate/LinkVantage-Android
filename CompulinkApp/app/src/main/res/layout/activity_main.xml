@@ -27,7 +27,7 @@
         android:fontFamily="@font/montserrat"
         android:text="@string/linkvantage_title"
         android:textColor="#F3F3F3"
-        android:textSize="35sp"
+        android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline" />
@@ -40,7 +40,7 @@
         android:fontFamily="@font/montserrat"
         android:text="by"
         android:textColor="#F3F3F3"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />

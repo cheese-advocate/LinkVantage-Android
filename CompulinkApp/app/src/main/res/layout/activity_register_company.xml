@@ -24,7 +24,7 @@
             android:text="@string/registerBut"
             android:textAlignment="center"
             android:textColor="#F3F3F3"
-            android:textSize="30sp"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -39,6 +39,7 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/client_option_txt"
             android:textColor="#F3F3F3"
+            android:textSize="14dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
 
@@ -52,6 +53,7 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/company_option_txt"
             android:textColor="#F3F3F3"
+            android:textSize="14dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
 
@@ -74,13 +76,14 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
+            android:autofillHints="Company Name"
             android:fontFamily="@font/montserrat"
             android:hint="COMPANY NAME"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/companyNameContainer"
             app:layout_constraintEnd_toEndOf="@+id/companyNameContainer"
             app:layout_constraintStart_toStartOf="@+id/companyNameContainer"
-            app:layout_constraintTop_toTopOf="@+id/companyNameContainer"
-            android:autofillHints="Company Name"/>
+            app:layout_constraintTop_toTopOf="@+id/companyNameContainer" />
 
         <TextView
             android:id="@+id/contactsTitle"
@@ -91,7 +94,7 @@
             android:text="@string/contacts_title_txt"
             android:textAlignment="center"
             android:textColor="#F3F3F3"
-            android:textSize="30sp"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/companyNameContainer" />
@@ -122,6 +125,7 @@
             android:hint="@string/usernameInp"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/usernameIco"
             app:layout_constraintTop_toTopOf="@+id/contactView" />
@@ -138,6 +142,7 @@
             android:hint="@string/passwordHint"
             android:inputType="textPassword"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/passwordIco"
             app:layout_constraintTop_toBottomOf="@+id/usernameRegInp" />
@@ -149,15 +154,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Name"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/first_name_inp_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/firstNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/passwordRegInp"
-            android:autofillHints="Name"/>
+            app:layout_constraintTop_toBottomOf="@+id/passwordRegInp" />
 
         <EditText
             android:id="@+id/lastNameInp"
@@ -166,15 +172,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Last Name"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/last_name_inp_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/lastNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/firstNameInp"
-            android:autofillHints="Last Name" />
+            app:layout_constraintTop_toBottomOf="@+id/firstNameInp" />
 
         <EditText
             android:id="@+id/emailRegInp"
@@ -183,15 +190,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Email"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/email_inp"
             android:inputType="textEmailAddress"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/emailIco"
-            app:layout_constraintTop_toBottomOf="@+id/lastNameInp"
-            android:autofillHints="Email" />
+            app:layout_constraintTop_toBottomOf="@+id/lastNameInp" />
 
         <EditText
             android:id="@+id/phoneRegInp"
@@ -205,6 +213,7 @@
             android:ems="10"
             android:hint="@string/phone_number_reg_inp"
             android:inputType="phone"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/contactView"
             app:layout_constraintEnd_toEndOf="@+id/contactView"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -281,7 +290,7 @@
             android:text="@string/address_reg_title"
             android:textAlignment="center"
             android:textColor="#F3F3F3"
-            android:textSize="30sp"
+            android:textSize="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/contactView" />
@@ -311,6 +320,7 @@
             android:hint="@string/street_number_reg_txt"
             android:inputType="number"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/streetNumIco"
             app:layout_constraintTop_toTopOf="@+id/addressRegContainer" />
@@ -322,15 +332,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Street name"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/street_name_reg_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/streetNameIco"
-            app:layout_constraintTop_toBottomOf="@+id/streetNumRegInp"
-            android:autofillHints="Street name" />
+            app:layout_constraintTop_toBottomOf="@+id/streetNumRegInp" />
 
         <EditText
             android:id="@+id/citySuburbRegInp"
@@ -339,15 +350,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Suburb"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/city_suburb_reg_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/citySuburbIco"
-            app:layout_constraintTop_toBottomOf="@+id/adressRegInp"
-            android:autofillHints="Suburb" />
+            app:layout_constraintTop_toBottomOf="@+id/adressRegInp" />
 
         <EditText
             android:id="@+id/postalCodeRegInp"
@@ -356,15 +368,16 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
+            android:autofillHints="Postal Code"
             android:ems="10"
             android:fontFamily="@font/montserrat"
             android:hint="@string/postal_code_reg_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/postalCodeIco"
-            app:layout_constraintTop_toBottomOf="@+id/citySuburbRegInp"
-            android:autofillHints="Postal Code" />
+            app:layout_constraintTop_toBottomOf="@+id/citySuburbRegInp" />
 
         <EditText
             android:id="@+id/additionalInfoRegInp"
@@ -379,6 +392,7 @@
             android:hint="@string/additional_information_reg_txt"
             android:inputType="textPersonName"
             android:textColor="#F3F3F3"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="@+id/addressRegContainer"
             app:layout_constraintEnd_toEndOf="@+id/addressRegContainer"
             app:layout_constraintStart_toEndOf="@+id/additionalInfoIco"
@@ -394,6 +408,7 @@
             android:fontFamily="@font/montserrat"
             android:text="@string/register_account_btn_txt"
             android:textColor="#F3F3F3"
+            android:textSize="14dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"

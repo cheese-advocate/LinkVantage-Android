@@ -138,6 +138,16 @@ public class InputValidatorHelper {
 
     public boolean validPassword(String pw)
     {
+        /**
+         * Password should be the following:
+         * At least 8 characters
+         * One uppercase
+         * One lowercase
+         * One number
+         * One special character
+         *
+         * If this is too complex or does not match the database it can be easily simplified
+         */
         String pwRegex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$";
         if(pw.trim().matches(pwRegex))
         {

@@ -2,6 +2,7 @@ package com.example.compulinkapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,7 +35,12 @@ public class NewPassword extends AppCompatActivity {
                 {
                     Toast.makeText(v.getContext(), "Both passwords need to match", Toast.LENGTH_SHORT).show();
                 }
-                else Toast.makeText(v.getContext(), "New Password submitted successfully", Toast.LENGTH_LONG).show();
+                else
+                {
+                    Intent intent = new Intent(v.getContext(), LoginActivity.class);
+                    Toast.makeText(v.getContext(), "New Password submitted successfully", Toast.LENGTH_LONG).show();
+                    startActivity(intent);
+                }
             }
         });
     }

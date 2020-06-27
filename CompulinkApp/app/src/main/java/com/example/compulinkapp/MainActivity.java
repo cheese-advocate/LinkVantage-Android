@@ -8,8 +8,16 @@ import android.os.Handler;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 2000;
+    /**
+     * The time the splash screen will display before navigating to the login screen
+     * Shown in milliseconds - currently set to 1500 - 1.5s
+     */
+    private static int SPLASH_TIME_OUT = 1500;
 
+    /**
+     * Creates the main activity and runs it for the specified time
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
