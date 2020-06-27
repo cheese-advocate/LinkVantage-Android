@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -290,10 +291,11 @@ public class RegisterAccount extends AppCompatActivity {
 
                 if(validity.equals("true")){ //
 
-                    toastPrint = "Successfully Validated - Registering Account." + postVar;
+                    toastPrint = "Successfully Validated - Registering Account.";
 
                 //Post Process - Start
-
+                    Conect conect = new Conect();
+                    conect.execute(postVar);
                 //Post Process - End
                 }
 
