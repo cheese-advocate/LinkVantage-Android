@@ -3,12 +3,16 @@ package com.example.compulinkapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -29,39 +33,13 @@ public class Dash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
 
+        /**
+         * Nav controller setup to control the navigation of the dashboard bottom navigation
+         */
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
-        bottomNav.setOnNavigationItemSelectedListener(navListener);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        NavController navController = Navigation.findNavController(this, R.id.fragment_container);
+        NavigationUI.setupWithNavController(bottomNav, navController);
     }
-
-    /**
-     * The methods below get called when the bottom navigation bar options are selected and
-     * ensure the correct activities are performed based on the selected option
-     */
-    private BottomNavigationView.OnNavigationItemSelectedListener navListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-            Fragment selectedFragment = null;
-
-            switch (menuItem.getItemId())
-            {
-                case R.id.nav_home:
-                    selectedFragment = new HomeFragment();
-                    break;
-                case R.id.nav_dashboard:
-                    selectedFragment = new DashFragment();
-                    break;
-                case R.id.nav_jobs:
-                    selectedFragment = new JobFragment();
-                    break;
-            }
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
-
-            return true;
-        }
-    };
 
     /**
      * Creates the option menu seen in the dashboard
@@ -84,7 +62,7 @@ public class Dash extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         super.onOptionsItemSelected(item);
-
+        
         switch (item.getItemId())
         {
             case R.id.account_opt:
