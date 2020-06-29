@@ -16,7 +16,6 @@ public class NewPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_password);
 
-
         Button submit = (Button) findViewById(R.id.new_password_submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
