@@ -12,6 +12,16 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+/**
+ * The dash class sets up the whole dashboard with all menus and container for fragments
+ * All methods in this class are used to set up the layout for the dashboard
+ * Instead of having a new activity for every screen needed several fragments are used
+ * These fragments are placed into a container on the dashboard when the specific
+ * fragment needs to be displayed
+ *
+ * The fragments are fully modular thus they can be placed in many activities where
+ * there is a container for them to be placed
+ */
 public class Dash extends AppCompatActivity {
 
     @Override
@@ -78,18 +88,17 @@ public class Dash extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.account_opt:
-                //navigate to account activity on select
-                //activity not yet created, thus no navigation
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
                 break;
             case R.id.settings_opt:
-                //navigate to settings activity on select
-                //activity not yet created, thus no navigation
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
                 break;
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);
                 break;
         }
+
         return true;
     }
 }
