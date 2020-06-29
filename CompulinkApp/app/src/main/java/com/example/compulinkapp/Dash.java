@@ -42,8 +42,8 @@ public class Dash extends AppCompatActivity {
                 case R.id.nav_dashboard:
                     selectedFragment = new DashFragment();
                     break;
-                case R.id.nav_profile:
-                    selectedFragment = new ProfileFragment();
+                case R.id.nav_jobs:
+                    selectedFragment = new JobFragment();
                     break;
             }
 

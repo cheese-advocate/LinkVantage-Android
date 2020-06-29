@@ -2,10 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.compulinkapp">
 
-    //Network Permissions - START
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    //Network Permissions - END
 
     <application
         android:allowBackup="true"
@@ -14,19 +12,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
-        <activity android:name=".NewPassword"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".Dash"
+        <activity
+            android:name=".NewPassword"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Dash"
             android:theme="@style/popup_theme" />
-        <activity android:name=".RegisterCompanyActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".LoginActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".RegisterAccount"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".ForgotPassword"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".RegisterCompanyActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".RegisterAccount"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ForgotPassword"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

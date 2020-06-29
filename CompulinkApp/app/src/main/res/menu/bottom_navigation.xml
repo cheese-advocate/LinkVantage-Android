@@ -11,7 +11,7 @@
         android:title="Dashboard"/>
 
     <item
-        android:id="@+id/nav_profile"
+        android:id="@+id/nav_jobs"
         android:icon="@drawable/ic_job"
         android:title="Jobs"/>
 </menu>
