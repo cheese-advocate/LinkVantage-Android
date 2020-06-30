@@ -61,6 +61,8 @@ public class ProfileFragment extends Fragment{
                         switch (which)
                         {
                             case DialogInterface.BUTTON_POSITIVE:
+                                Intent deleteAccount = new Intent(getContext(), LoginActivity.class);
+                                startActivity(deleteAccount);
                                 break;
                             case DialogInterface.BUTTON_NEGATIVE:
                                 break;
