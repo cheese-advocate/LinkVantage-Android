@@ -5,4 +5,5 @@
     <color name="colorAccent">#03AAFB</color>
     <color name="textColor">#F3F3F3</color>
     <color name="black">#000</color>
+    <color name="seeThrough">#CC373741</color>
 </resources>
