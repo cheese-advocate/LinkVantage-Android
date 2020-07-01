@@ -274,19 +274,19 @@ public class RegisterAccount extends AppCompatActivity {
 
 
                 //Constructing Post Variable - Start
-                String postVar = "RegisterClient:";
-                postVar = postVar           + "username"    + username.getText().toString();
-                postVar = postVar + "_"     + "password"    + password.getText().toString();
-                postVar = postVar + "_"     + "firstName"   + firstname.getText().toString();
-                postVar = postVar + "_"     + "lastName"    + lastname.getText().toString();
-                postVar = postVar + "_"     + "email"       + email.getText().toString();
-                postVar = postVar + "_"     + "phone"       + phone.getText().toString();
+                String postVar = "[RegisterClient]";
+                postVar = postVar   + "\n"          + "username="    + username.getText().toString();
+                postVar = postVar + "\n"     + "password=" +  password.getText().toString();
+                postVar = postVar + "\n"     + "firstName="   + firstname.getText().toString();
+                postVar = postVar + "\n"     + "lastName="    + lastname.getText().toString();
+                postVar = postVar + "\n"     + "email="       + email.getText().toString();
+                postVar = postVar + "\n"     + "phone="       + phone.getText().toString();
 
-                postVar = postVar + "_"     + "number"      + number.getText().toString();
-                postVar = postVar + "_"     + "name"        + name.getText().toString();
-                postVar = postVar + "_"     + "city"        + phone.getText().toString();
-                postVar = postVar + "_"     + "postal"      + postal.getText().toString();
-                postVar = postVar + "_"     + "addInfo"     + addInfo.getText().toString();
+                postVar = postVar + "\n"     + "number="      + number.getText().toString();
+                postVar = postVar + "\n"     + "name="        + name.getText().toString();
+                postVar = postVar + "\n"     + "city="        + phone.getText().toString();
+                postVar = postVar + "\n"     + "postal="      + postal.getText().toString();
+                postVar = postVar + "\n"     + "addInfo="     + addInfo.getText().toString();
                 //Constructing Post Variable - End
 
                 if(validity.equals("true")){ //
