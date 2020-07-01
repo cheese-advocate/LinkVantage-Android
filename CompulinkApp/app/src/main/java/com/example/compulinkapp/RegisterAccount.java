@@ -284,7 +284,7 @@ public class RegisterAccount extends AppCompatActivity {
 
                 postVar = postVar + "_"     + "number"      + number.getText().toString();
                 postVar = postVar + "_"     + "name"        + name.getText().toString();
-                postVar = postVar + "_"     + "city"        + phone.getText().toString();
+                postVar = postVar + "_"     + "city"        + city.getText().toString();
                 postVar = postVar + "_"     + "postal"      + postal.getText().toString();
                 postVar = postVar + "_"     + "addInfo"     + addInfo.getText().toString();
                 //Constructing Post Variable - End
