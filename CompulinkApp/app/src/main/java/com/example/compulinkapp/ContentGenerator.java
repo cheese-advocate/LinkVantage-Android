@@ -75,4 +75,34 @@ public class ContentGenerator {
         //Add new card to layout
         mainLayout.addView(card);
     }
+
+    /**
+     * Changes the specified card view's parent. If the card needs to be displayed in
+     * different location after user performs specific action
+     *
+     * Requires the new parent and the view to be moved
+     * @param newParent
+     * @param view
+     */
+    public void changeParent(LinearLayout newParent, CardView view)
+    {
+        //Layout params need to be reset
+        CardView.LayoutParams params = new CardView.LayoutParams(
+                CardView.LayoutParams.WRAP_CONTENT,
+                CardView.LayoutParams.MATCH_PARENT
+        );
+        params.setMarginStart(getPixels(10));
+        params.width = getPixels(150);
+        //Set the layout params
+        view.setLayoutParams(params);
+        //Get the current parent of the view
+        ViewGroup parent = (ViewGroup) view.getParent();
+        //Remove child from current parent
+        if(parent != null)
+        {
+            parent.removeView(view);
+        }
+        //Give child the new specified parent
+        newParent.addView(view);
+    }
 }

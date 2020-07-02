@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 public class JobFragment extends Fragment{
@@ -30,6 +31,16 @@ public class JobFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 cg.createJobCard(linearLayout , "JOB Test");
+            }
+        });
+
+        final CardView testV = view.findViewById(R.id.TEST);
+        final LinearLayout linearLayout_new = (LinearLayout) view.findViewById(R.id.jobs_pending);
+
+        testV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cg.changeParent(linearLayout, testV);
             }
         });
     }
