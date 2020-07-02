@@ -24,7 +24,7 @@ public class JobFragment extends Fragment{
 
         Button testBtn = view.findViewById(R.id.testBtn);
         final ContentGenerator cg = new ContentGenerator(getContext());
-        final LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.jobs_todo);
+        final LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.jobs_active);
 
         testBtn.setOnClickListener(new View.OnClickListener() {
             @Override
