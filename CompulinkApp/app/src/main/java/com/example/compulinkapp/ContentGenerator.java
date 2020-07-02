@@ -2,6 +2,7 @@ package com.example.compulinkapp;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -59,15 +60,16 @@ public class ContentGenerator {
         //Layout parameters for text
         LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
+                LinearLayout.LayoutParams.MATCH_PARENT
         );
         //Design the text view
         TextView tv = new TextView(context);
-        paramsText.gravity = 4;
         tv.setLayoutParams(paramsText);
         tv.setText(text);
         tv.setTextColor(Color.parseColor("#F3F3F3"));
         tv.setTextSize(getPixels(8));
+        tv.setTextAlignment(TextView.TEXT_ALIGNMENT_GRAVITY);
+        tv.setGravity(Gravity.CENTER);
         //Add text view to card
         card.addView(tv);
         //Add new card to layout
