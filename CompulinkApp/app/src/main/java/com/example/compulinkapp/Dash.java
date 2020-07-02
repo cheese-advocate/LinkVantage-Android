@@ -41,6 +41,11 @@ public class Dash extends AppCompatActivity {
         NavigationUI.setupWithNavController(bottomNav, navController);
     }
 
+    public void setActionBarTitle(String title)
+    {
+        getSupportActionBar().setTitle(title);
+    }
+
     /**
      * Creates the option menu seen in the dashboard
      * @param menu
@@ -66,10 +71,10 @@ public class Dash extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.account_opt:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack(null).commit();
                 break;
             case R.id.settings_opt:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).addToBackStack(null).commit();
                 break;
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);

@@ -25,6 +25,7 @@ public class ProfileFragment extends Fragment{
      * @return
      */
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((Dash) getActivity()).setActionBarTitle("Profile");
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 

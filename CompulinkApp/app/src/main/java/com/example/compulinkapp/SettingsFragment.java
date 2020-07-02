@@ -9,10 +9,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 public class SettingsFragment extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ((Dash) getActivity()).setActionBarTitle("Settings");
         return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 
@@ -25,7 +30,8 @@ public class SettingsFragment extends Fragment{
         about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(view.getContext(), "This app was developed by Cerebruteq\nCerebruteq\u00a9 2020", Toast.LENGTH_SHORT).show();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new AboutFragment()).addToBackStack(null).commit();
             }
         });
     }
