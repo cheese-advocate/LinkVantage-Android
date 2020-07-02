@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,11 +23,13 @@ public class RegisterAccount extends AppCompatActivity {
         //Toast message to be shown when this activity starts
         Toast.makeText(getApplicationContext(), "Only one contact can be created during registration.\nAdditional Contacts can be added after registration", Toast.LENGTH_LONG).show();
 
-        Button companyOptBut = (Button) findViewById(R.id.companyOptionBut);
+        final Button companyOptBut = (Button) findViewById(R.id.companyOptionBut);
 
         companyOptBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                companyOptBut.startAnimation(anim);
                 Intent switchOpt = new Intent(v.getContext(), RegisterCompanyActivity.class);
                 startActivity(switchOpt);
             }
@@ -50,11 +54,13 @@ public class RegisterAccount extends AppCompatActivity {
  // - Assigning Inputs - End
 
         //Register Button Code - Start
-        Button regBut =             (Button) findViewById(R.id.registerBut);
+        final Button regBut =             (Button) findViewById(R.id.registerBut);
 
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                regBut.startAnimation(anim);
 
                 InputValidatorHelper helper = new InputValidatorHelper();
 

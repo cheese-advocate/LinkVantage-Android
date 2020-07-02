@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,11 +18,13 @@ public class NewPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_password);
 
-        Button submit = (Button) findViewById(R.id.new_password_submit);
+        final Button submit = (Button) findViewById(R.id.new_password_submit);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                submit.startAnimation(anim);
                 if(newPasswordValidation().equals("Empty"))
                 {
                     Toast.makeText(v.getContext(), "One or more password fields are empty", Toast.LENGTH_SHORT).show();

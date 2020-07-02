@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/compuMainLogo"
         android:layout_width="0dp"
         android:layout_height="174dp"
         android:layout_marginStart="128dp"
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/cerebruteqMainLogo"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
