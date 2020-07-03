@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView;
 public class ContentGenerator {
     Context context;
     View view;
+    
     /**
      * Constructor to set the context for the class
      * @param ctx

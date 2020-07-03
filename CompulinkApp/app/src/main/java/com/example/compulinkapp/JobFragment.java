@@ -74,7 +74,10 @@ public class JobFragment extends Fragment{
             @Override
             public void onRefresh() {
                 //Code to execute on refresh required here
-
+                /**
+                 * Call database to see if new jobs were added
+                 * Or if jobs were removed or changed
+                 */
                 //Set refresh to false when code is complete
                 //This ensures the icon goes away when done refreshing
                 swipe_refresh.setRefreshing(false);
