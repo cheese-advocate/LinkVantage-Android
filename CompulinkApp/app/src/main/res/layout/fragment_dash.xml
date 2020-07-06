@@ -120,7 +120,7 @@
                 android:textColor="@color/textColor"
                 android:fontFamily="@font/montserrat"
                 android:textSize="15dp"
-                android:text="Monthly Job Report"
+                android:text="Monthly Report"
                 android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
                 app:layout_constraintTop_toBottomOf="@id/hScrollActiveJobs"
@@ -173,6 +173,65 @@
                 app:layout_constraintEnd_toEndOf="@+id/completed_jobs_container"
                 app:layout_constraintStart_toStartOf="@+id/completed_jobs_container"
                 app:layout_constraintTop_toTopOf="@+id/completed_jobs_container" />
+
+            <TextView
+                android:id="@+id/txt_sales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Sales"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toStartOf="@+id/txt_avgJobRating"
+                app:layout_constraintStart_toEndOf="@+id/jobs_completed_report"
+                app:layout_constraintTop_toTopOf="@+id/report_view" />
+
+            <View
+                android:id="@+id/completed_sales_container"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toStartOf="@+id/avg_rating_container"
+                app:layout_constraintStart_toEndOf="@id/completed_jobs_container"
+                app:layout_constraintTop_toBottomOf="@id/txt_sales" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="21"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/completed_sales_container"
+                app:layout_constraintEnd_toEndOf="@+id/completed_sales_container"
+                app:layout_constraintStart_toStartOf="@id/completed_sales_container"
+                app:layout_constraintTop_toTopOf="@id/completed_sales_container" />
+
+            <TextView
+                android:id="@+id/txt_avgJobRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/montserrat"
+                android:text="Average Job Rating"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/report_view"
+                app:layout_constraintTop_toTopOf="@id/report_view" />
+
+            <View
+                android:id="@+id/avg_rating_container"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="@+id/report_view"
+                app:layout_constraintTop_toBottomOf="@id/txt_avgJobRating" />
 
             <TextView
                 android:id="@+id/invoices_dash"
@@ -269,6 +328,19 @@
 
                 </LinearLayout>
             </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/txt_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:text="3.5"
+                android:textColor="@color/textColor"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/avg_rating_container"
+                app:layout_constraintEnd_toEndOf="@+id/avg_rating_container"
+                app:layout_constraintStart_toStartOf="@+id/avg_rating_container"
+                app:layout_constraintTop_toTopOf="@+id/avg_rating_container" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,6 +21,11 @@
         android:label="JobFragment"
         tools:layout="@layout/fragment_jobs"/>
     <fragment
+        android:id="@+id/nav_more"
+        android:name="com.example.compulinkapp.MoreFragment"
+        android:label="MoreFragment"
+        tools:layout="@layout/fragment_more"/>
+    <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.compulinkapp.ProfileFragment"
         android:label="ProfileFragment"
