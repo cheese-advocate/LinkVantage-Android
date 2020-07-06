@@ -14,7 +14,7 @@ public class ContentGenerator {
     View view;
     
     /**
-     * Constructor to set the context for the class
+     * Constructor to set the context and view for the class
      * @param ctx
      */
     public ContentGenerator(Context ctx, View view_sent)
