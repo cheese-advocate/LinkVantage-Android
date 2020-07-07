@@ -7,12 +7,12 @@
     android:fillViewport="true"
     android:isScrollContainer="true"
     android:background="@drawable/android_background"
-    tools:context=".RegisterAccount">
+    tools:context=".activities.RegisterAccountActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="729dp"
-        tools:context=".RegisterAccount"
+        tools:context=".activities.RegisterAccountActivity"
         tools:layout_editor_absoluteY="1dp">
 
         <TextView

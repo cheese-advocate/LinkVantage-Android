@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class ForgotPassword extends AppCompatActivity {
+import com.example.compulinkapp.classes.InputValidatorHelper;
+import com.example.compulinkapp.R;
+
+public class ForgotPasswordActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +61,7 @@ public class ForgotPassword extends AppCompatActivity {
                 }
                 else//valid email
                 {
-                    Intent newPassword = new Intent(v.getContext(), NewPassword.class);
+                    Intent newPassword = new Intent(v.getContext(), NewPasswordActivity.class);
                     startActivity(newPassword);
                 }
 

@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.classes;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+
+import com.example.compulinkapp.R;
 
 public class ContentGenerator {
     Context context;

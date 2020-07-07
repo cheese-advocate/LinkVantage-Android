@@ -7,32 +7,32 @@
 
     <fragment
         android:id="@+id/nav_dashboard"
-        android:name="com.example.compulinkapp.DashFragment"
+        android:name="com.example.compulinkapp.fragments.DashFragment"
         android:label="DashFragment"
         tools:layout="@layout/fragment_dash"/>
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.compulinkapp.HomeFragment"
+        android:name="com.example.compulinkapp.fragments.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"/>
     <fragment
         android:id="@+id/nav_jobs"
-        android:name="com.example.compulinkapp.JobFragment"
+        android:name="com.example.compulinkapp.fragments.JobFragment"
         android:label="JobFragment"
         tools:layout="@layout/fragment_jobs"/>
     <fragment
         android:id="@+id/nav_more"
-        android:name="com.example.compulinkapp.MoreFragment"
+        android:name="com.example.compulinkapp.fragments.MoreFragment"
         android:label="MoreFragment"
         tools:layout="@layout/fragment_more"/>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.compulinkapp.ProfileFragment"
+        android:name="com.example.compulinkapp.fragments.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile"/>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.compulinkapp.SettingsFragment"
+        android:name="com.example.compulinkapp.fragments.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings">
         <action
@@ -41,7 +41,7 @@
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.compulinkapp.AboutFragment"
+        android:name="com.example.compulinkapp.fragments.AboutFragment"
         android:label="AboutFragment"
         tools:layout="@layout/fragment_about"/>
 </navigation>

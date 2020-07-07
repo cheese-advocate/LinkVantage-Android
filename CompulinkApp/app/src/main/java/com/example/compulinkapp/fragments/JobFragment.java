@@ -1,6 +1,5 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,10 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.compulinkapp.classes.ContentGenerator;
+import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.R;
+
 public class JobFragment extends Fragment{
 
     /**
@@ -24,7 +27,7 @@ public class JobFragment extends Fragment{
      * @return
      */
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((Dash) getActivity()).setActionBarTitle("Jobs");
+        ((DashActivity) getActivity()).setActionBarTitle("Jobs");
         return inflater.inflate(R.layout.fragment_jobs, container, false);
     }
 

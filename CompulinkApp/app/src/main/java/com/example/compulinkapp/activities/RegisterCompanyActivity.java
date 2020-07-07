@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.compulinkapp.R;
 
 public class RegisterCompanyActivity extends AppCompatActivity {
 
@@ -27,7 +29,7 @@ public class RegisterCompanyActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 clientOptBut.startAnimation(anim);
-                Intent switchOpt = new Intent(v.getContext(), RegisterAccount.class);
+                Intent switchOpt = new Intent(v.getContext(), RegisterAccountActivity.class);
                 startActivity(switchOpt);
             }
         });

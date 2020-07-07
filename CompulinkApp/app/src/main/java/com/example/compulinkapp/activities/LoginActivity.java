@@ -1,17 +1,17 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.compulinkapp.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
             {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 forgotPw.startAnimation(anim);
-                Intent forgotPasswordOpen = new Intent(v.getContext(), ForgotPassword.class);
+                Intent forgotPasswordOpen = new Intent(v.getContext(), ForgotPasswordActivity.class);
                 startActivity(forgotPasswordOpen);
             }
         });
@@ -43,7 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 registerBut.startAnimation(anim);
-                Intent registerPageOpen = new Intent(v.getContext(), RegisterAccount.class);
+                Intent registerPageOpen = new Intent(v.getContext(), RegisterAccountActivity.class);
                 startActivity(registerPageOpen);
             }
         });
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 login.startAnimation(anim);
-                Intent dash = new Intent(v.getContext(), Dash.class);
+                Intent dash = new Intent(v.getContext(), DashActivity.class);
                 if(loginValidation())
                 {
                     startActivity(dash);

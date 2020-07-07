@@ -1,8 +1,7 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -12,8 +11,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 
+import com.example.compulinkapp.R;
+import com.example.compulinkapp.fragments.ProfileFragment;
+import com.example.compulinkapp.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
@@ -26,7 +27,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
  * The fragments are fully modular thus they can be placed in many activities where
  * there is a container for them to be placed
  */
-public class Dash extends AppCompatActivity {
+public class DashActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.classes;
 
 import android.os.AsyncTask;
 import android.util.Log;

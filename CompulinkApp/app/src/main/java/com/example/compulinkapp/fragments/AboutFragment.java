@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,10 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.R;
+
 public class AboutFragment extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((Dash) getActivity()).setActionBarTitle("About");
+        ((DashActivity) getActivity()).setActionBarTitle("About");
         return inflater.inflate(R.layout.fragment_about, container, false);
     }
 

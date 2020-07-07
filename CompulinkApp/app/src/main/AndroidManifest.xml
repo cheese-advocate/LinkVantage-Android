@@ -13,25 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
         <activity
-            android:name=".NewPassword"
+            android:name=".activities.NewPasswordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Dash"
+            android:name=".activities.DashActivity"
             android:theme="@style/popup_theme" />
         <activity
-            android:name=".RegisterCompanyActivity"
+            android:name=".activities.RegisterCompanyActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".RegisterAccount"
+            android:name=".activities.RegisterAccountActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".ForgotPassword"
+            android:name=".activities.ForgotPasswordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activities.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

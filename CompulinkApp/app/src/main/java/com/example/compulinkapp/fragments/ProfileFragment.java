@@ -1,19 +1,21 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.fragments;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+
+import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.activities.LoginActivity;
+import com.example.compulinkapp.activities.NewPasswordActivity;
+import com.example.compulinkapp.R;
 
 public class ProfileFragment extends Fragment{
 
@@ -25,7 +27,7 @@ public class ProfileFragment extends Fragment{
      * @return
      */
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((Dash) getActivity()).setActionBarTitle("Profile");
+        ((DashActivity) getActivity()).setActionBarTitle("Profile");
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 
@@ -46,7 +48,7 @@ public class ProfileFragment extends Fragment{
         resetPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resetPwPage = new Intent(v.getContext(), NewPassword.class);
+                Intent resetPwPage = new Intent(v.getContext(), NewPasswordActivity.class);
                 startActivity(resetPwPage);
             }
         });

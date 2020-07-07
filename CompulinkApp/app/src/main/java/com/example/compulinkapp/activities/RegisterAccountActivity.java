@@ -1,11 +1,10 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,7 +12,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class RegisterAccount extends AppCompatActivity {
+import com.example.compulinkapp.classes.Conect;
+import com.example.compulinkapp.classes.InputValidatorHelper;
+import com.example.compulinkapp.R;
+
+public class RegisterAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

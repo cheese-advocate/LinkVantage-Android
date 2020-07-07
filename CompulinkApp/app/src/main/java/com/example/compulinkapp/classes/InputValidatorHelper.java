@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.classes;
 
 import android.text.TextUtils;
 import android.widget.TextView;

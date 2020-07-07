@@ -1,4 +1,4 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,10 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.R;
+
 public class DashFragment extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((Dash) getActivity()).setActionBarTitle("Dashboard");
+        ((DashActivity) getActivity()).setActionBarTitle("Dashboard");
         return inflater.inflate(R.layout.fragment_dash, container, false);
     }
 
