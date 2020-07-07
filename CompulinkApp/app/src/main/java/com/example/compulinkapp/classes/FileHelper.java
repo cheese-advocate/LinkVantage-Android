@@ -1,7 +1,6 @@
 package com.example.compulinkapp.classes;
 
 import android.content.Context;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -52,5 +51,31 @@ public class FileHelper {
         }
 
         return itemsList;
+    }
+
+    public static boolean hasItemsCheck(Context ctx)
+    {
+        FileInputStream fis = null;
+        try
+        {
+            fis = ctx.openFileInput(FILENAME);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            if(ois.readObject() != null)
+            {
+                return true;
+            }
+            else return false;
+        } catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

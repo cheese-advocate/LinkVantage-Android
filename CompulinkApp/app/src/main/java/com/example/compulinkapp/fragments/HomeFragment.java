@@ -1,26 +1,31 @@
 package com.example.compulinkapp.fragments;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.FileHelper;
-
+import com.example.compulinkapp.classes.Notification;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class HomeFragment extends Fragment{
 
@@ -37,7 +42,7 @@ public class HomeFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         final EditText itemEntered = view.findViewById(R.id.list_item);
-        Button addItem = view.findViewById(R.id.list_add_btn);
+        final Button addItem = view.findViewById(R.id.list_add_btn);
         ListView listView = view.findViewById(R.id.todo_list);
 
         items = FileHelper.readData(getContext());
@@ -62,6 +67,9 @@ public class HomeFragment extends Fragment{
 
                     Toast.makeText(getContext(), "Item added", Toast.LENGTH_SHORT).show();
                 }
+
+                Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.blink);
+                addItem.startAnimation(anim);
             }
         });
 
@@ -74,5 +82,30 @@ public class HomeFragment extends Fragment{
                 Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /**
+         * Code for creating and scheduling the notification
+         */
+        Calendar repeatTime = Calendar.getInstance();
+        repeatTime.set(Calendar.HOUR_OF_DAY, 9);
+        repeatTime.set(Calendar.MINUTE, 0);
+
+        /**
+         * Ensures that if the time scheduled is in the past the notification gets moved on another day
+         * This will prevent notifications from displaying immediately on page open if it's past scheduled time
+         */
+        Calendar now = Calendar.getInstance();
+        if(repeatTime.before(now))
+        {
+            repeatTime.add(Calendar.DAY_OF_MONTH, 1);
+        }
+
+        Intent intent = new Intent(getContext(), Notification.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(getContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        /**
+         * Notification or action is set to take place daily at 9:00AM
+         */
+        AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, repeatTime.getTimeInMillis(), alarmManager.INTERVAL_DAY, pendingIntent);
     }
 }
