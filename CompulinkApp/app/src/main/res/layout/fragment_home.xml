@@ -32,6 +32,8 @@
             android:layout_marginEnd="8dp"
             android:layout_height="200dp"
             android:background="@color/seeThrough"
+            android:divider="@color/colorAccent"
+            android:dividerHeight="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

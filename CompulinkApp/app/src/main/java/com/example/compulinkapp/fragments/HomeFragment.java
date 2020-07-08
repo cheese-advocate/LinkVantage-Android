@@ -46,7 +46,6 @@ public class HomeFragment extends Fragment{
         final EditText itemEntered = view.findViewById(R.id.list_item);
         final Button addItem = view.findViewById(R.id.list_add_btn);
         ListView listView = view.findViewById(R.id.todo_list);
-
         /**
          * Populate the list with items from the created file if there are items stored in the file
          */
@@ -92,6 +91,15 @@ public class HomeFragment extends Fragment{
                 FileHelper.writeData(items, getContext());
                 Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
                 return true;
+            }
+        });
+        /**
+         * User friendliness toast message
+         */
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "To delete an Item press and hold the item", Toast.LENGTH_SHORT).show();
             }
         });
 
