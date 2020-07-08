@@ -30,7 +30,7 @@ public class SettingsFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new AboutFragment()).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new AboutFragment()).addToBackStack("About").commit();
             }
         });
     }

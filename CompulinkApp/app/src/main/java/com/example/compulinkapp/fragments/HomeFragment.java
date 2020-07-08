@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,11 +20,16 @@ import android.widget.ListView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.FileHelper;
 import com.example.compulinkapp.classes.Notification;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -40,6 +47,14 @@ public class HomeFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        CardView facebookFeed = view.findViewById(R.id.facebookFeedCard);
+        facebookFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new FacebookFeedFragment()).addToBackStack("Facebook Feed").commit();
+            }
+        });
         /**
          * Initialisation of variables required for home screen list
          */

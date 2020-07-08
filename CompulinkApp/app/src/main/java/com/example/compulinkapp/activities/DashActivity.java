@@ -2,6 +2,7 @@ package com.example.compulinkapp.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -11,8 +12,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.compulinkapp.R;
+import com.example.compulinkapp.fragments.FacebookFeedFragment;
 import com.example.compulinkapp.fragments.ProfileFragment;
 import com.example.compulinkapp.fragments.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -72,10 +75,10 @@ public class DashActivity extends AppCompatActivity {
         switch (item.getItemId())
         {
             case R.id.account_opt:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack("Account").commit();
                 break;
             case R.id.settings_opt:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).addToBackStack("Settings").commit();
                 break;
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);

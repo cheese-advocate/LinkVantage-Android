@@ -2,6 +2,7 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
@@ -10,7 +11,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/txt_todo"
@@ -28,9 +29,9 @@
         <ListView
             android:id="@+id/todo_list"
             android:layout_width="0dp"
+            android:layout_height="200dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_height="200dp"
             android:background="@color/seeThrough"
             android:divider="@color/colorAccent"
             android:dividerHeight="1dp"
@@ -40,10 +41,11 @@
             app:layout_constraintTop_toBottomOf="@id/txt_todo" />
 
         <LinearLayout
+            android:id="@+id/inputContainer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:background="@color/seeThrough"
             android:orientation="horizontal"
@@ -71,8 +73,62 @@
                 android:background="@drawable/rounded_button"
                 android:fontFamily="@font/montserrat"
                 android:text="Add Item"
-                android:textColor="@color/textColor"/>
+                android:textColor="@color/textColor" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/socialFeedsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Social Media Feeds"
+            android:textColor="@color/textColor"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputContainer" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/facebookFeedCard"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            app:cardBackgroundColor="@color/seeThrough"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/socialFeedsText">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_facebook"
+                android:layout_gravity="center|top"
+                android:layout_marginTop="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facebook Feed"
+                android:textColor="@color/textColor"
+                android:fontFamily="@font/montserrat"
+                android:textSize="12dp"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="30dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintGuide_percent="0.5"/>
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

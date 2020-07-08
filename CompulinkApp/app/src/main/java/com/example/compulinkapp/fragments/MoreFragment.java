@@ -2,6 +2,8 @@ package com.example.compulinkapp.fragments;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -38,7 +40,7 @@ public class MoreFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack("Profile").commit();
             }
         });
 
@@ -46,22 +48,41 @@ public class MoreFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new JobFragment()).addToBackStack(null).commit();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new JobFragment()).addToBackStack("Jobs").commit();
                 //Job fragment to be replaced with job management when it has been added
             }
         });
 
+        /**
+         * On click of facebook link the link will open in the facebook app and take the user to
+         * Compulink Technologies Home screen in facebook where all important details are shown
+         * If facebook is not on the device or not set up on the device the user will be redirected
+         * to compulink technologies' facebook page on their default browser
+         */
         facebookLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String url = "https://www.facebook.com/Compulinktechnologies/";
                 try
                 {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Compulinktechnologies/"));
-                    startActivity(intent);
+                    PackageManager pm = getContext().getPackageManager();
+                    ApplicationInfo appInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+                    if(appInfo.enabled)
+                    {
+                        Uri uri = Uri.parse("fb://facewebmodal/f?href=" + url);
+                        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
                 }
-                catch (ActivityNotFoundException e)
+                catch (ActivityNotFoundException | PackageManager.NameNotFoundException e)
                 {
-                    Toast.makeText(getContext(), "The facebook page is unfortunately not available", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
                 }
             }
         });
