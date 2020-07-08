@@ -154,7 +154,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_2"
+            android:id="@+id/facebookCard"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="16dp"
@@ -166,14 +166,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_account_blue"
+                android:src="@drawable/ic_facebook"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Some Management"
+                android:text="Visit our Facebook"
                 android:textColor="@color/textColor"
                 android:fontFamily="@font/montserrat"
                 android:textSize="12dp"

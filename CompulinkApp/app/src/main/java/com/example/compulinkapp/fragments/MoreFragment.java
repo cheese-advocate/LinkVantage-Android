@@ -1,9 +1,13 @@
 package com.example.compulinkapp.fragments;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +31,7 @@ public class MoreFragment extends Fragment{
 
         CardView profileManagement = view.findViewById(R.id.profile_management_card);
         CardView jobManagement = view.findViewById(R.id.job_management_card);
+        CardView facebookLink = view.findViewById(R.id.facebookCard);
         //Other cards still required and onClickListeners also required for each
 
         profileManagement.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +51,19 @@ public class MoreFragment extends Fragment{
             }
         });
 
-
+        facebookLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/Compulinktechnologies/"));
+                    startActivity(intent);
+                }
+                catch (ActivityNotFoundException e)
+                {
+                    Toast.makeText(getContext(), "The facebook page is unfortunately not available", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
