@@ -10,8 +10,18 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 public class FileHelper {
+    /**
+     * The name of the file to be created, written to and read from
+     * for the list on the home screen
+     */
     public static final String FILENAME = "listinfo.dat";
 
+    /**
+     * Write data to the file when the user adds items to the list
+     *
+     * @param items Arraylist of items to be added
+     * @param ctx   Context required
+     */
     public static void writeData(ArrayList<String> items, Context ctx)
     {
         try
@@ -29,6 +39,11 @@ public class FileHelper {
         }
     }
 
+    /**
+     * Reads data stored in the file to populate the list when the app starts again
+     * @param ctx Context required
+     * @return Arraylist of items in the file
+     */
     public static ArrayList<String> readData(Context ctx)
     {
         ArrayList<String> itemsList = null;
@@ -53,6 +68,12 @@ public class FileHelper {
         return itemsList;
     }
 
+    /**
+     * Checks if the file is empty or if it has items
+     * Used to decide if the notification to the technician is necessary
+     * @param ctx Context required
+     * @return Boolean based on condition outcome
+     */
     public static boolean hasItemsCheck(Context ctx)
     {
         FileInputStream fis = null;

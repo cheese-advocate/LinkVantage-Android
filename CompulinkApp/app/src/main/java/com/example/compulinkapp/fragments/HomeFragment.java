@@ -25,7 +25,6 @@ import com.example.compulinkapp.classes.FileHelper;
 import com.example.compulinkapp.classes.Notification;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.TimeZone;
 
 public class HomeFragment extends Fragment{
 
@@ -41,14 +40,23 @@ public class HomeFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        /**
+         * Initialisation of variables required for home screen list
+         */
         final EditText itemEntered = view.findViewById(R.id.list_item);
         final Button addItem = view.findViewById(R.id.list_add_btn);
         ListView listView = view.findViewById(R.id.todo_list);
 
+        /**
+         * Populate the list with items from the created file if there are items stored in the file
+         */
         items = FileHelper.readData(getContext());
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_expandable_list_item_1, items);
         listView.setAdapter(adapter);
 
+        /**
+         * Adds item to the list when clicked
+         */
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,13 +81,17 @@ public class HomeFragment extends Fragment{
             }
         });
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /**
+         * When an item in the list is Long clicked on it will be removed
+         */
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 items.remove(position);
                 adapter.notifyDataSetChanged();
                 FileHelper.writeData(items, getContext());
                 Toast.makeText(getContext(), "Item Deleted", Toast.LENGTH_SHORT).show();
+                return true;
             }
         });
 
@@ -97,7 +109,7 @@ public class HomeFragment extends Fragment{
         Calendar now = Calendar.getInstance();
         if(repeatTime.before(now))
         {
-            repeatTime.add(Calendar.DAY_OF_MONTH, 1);
+            repeatTime.add(Calendar.DAY_OF_MONTH, 1); //Add one day to the alarm
         }
 
         Intent intent = new Intent(getContext(), Notification.class);
