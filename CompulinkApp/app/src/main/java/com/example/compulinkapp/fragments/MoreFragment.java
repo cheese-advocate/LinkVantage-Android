@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
+import com.example.compulinkapp.classes.GoogleMapsHelper;
 
 public class MoreFragment extends Fragment{
 
@@ -34,6 +35,7 @@ public class MoreFragment extends Fragment{
         CardView profileManagement = view.findViewById(R.id.profile_management_card);
         CardView jobManagement = view.findViewById(R.id.job_management_card);
         CardView facebookLink = view.findViewById(R.id.facebookCard);
+        CardView location = view.findViewById(R.id.locationCard);
         //Other cards still required and onClickListeners also required for each
 
         profileManagement.setOnClickListener(new View.OnClickListener() {
@@ -84,6 +86,17 @@ public class MoreFragment extends Fragment{
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                     startActivity(intent);
                 }
+            }
+        });
+
+        /**
+         * Opens google maps app on the location of Compulink technologies
+         */
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GoogleMapsHelper mapsHelper = new GoogleMapsHelper(getContext());
+                mapsHelper.openLocation("20 Astra Ave, Riverton, Cape Town, 7490");
             }
         });
     }
