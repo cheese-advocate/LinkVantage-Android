@@ -20,14 +20,14 @@ public class Conect extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        String urlString = "http://192.168.0.109/urlct2ws/index.php";
+        String urlString = "http://10.0.0.21/WebPortal/mobilePortal.php";
         String data = "post=";
         data = data + objects[0];
         String response = "";
 
         try{
 
-            Log.d("log" ,"Attemping to post" + data + "to" + urlString );
+            Log.d("Test-log" ,"Attemping to post" + data + "to" + urlString );
 
             URL url = new URL (urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -68,7 +68,7 @@ public class Conect extends AsyncTask {
         }
 
         Log.d("Response:" ,"Response from text file: " + response);
-        return null;
+        return response;
     }
 
 }
