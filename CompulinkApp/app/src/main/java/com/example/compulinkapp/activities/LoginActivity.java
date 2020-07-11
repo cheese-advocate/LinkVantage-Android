@@ -1,19 +1,18 @@
-package com.example.compulinkapp;
+package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.compulinkapp.activities.DashActivity;
-import com.example.compulinkapp.activities.ForgotPasswordActivity;
-import com.example.compulinkapp.activities.RegisterAccountActivity;
+import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.Conect;
 
 import java.util.concurrent.ExecutionException;
@@ -113,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
     };
     //loginValidation Method - End
 //loginCredentialCheck Method - Start
-    private String loginCredentialCheck() throws ExecutionException, InterruptedException {
+    private String loginCredentialCheck() throws ExecutionException, InterruptedException, ExecutionException {
 
         //Initialising variables from user_input_fields - Start
         TextView usernameInp = findViewById(R.id.usernameInput);
