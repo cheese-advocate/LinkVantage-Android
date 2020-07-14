@@ -46,4 +46,6 @@
     <string name="version_info">This is the latest version</string>
     <string name="version">Version 1.0</string>
     <string name="copyrightText">Cerebruteq © 2020</string>
+    <string name="regInfo">Only one contact and address can be created during registration additional ones can be added after registration</string>
+    <string name="regInfoPrivClient">Only one contact can be created during registration additional ones can be added after registration</string>
 </resources>

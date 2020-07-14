@@ -19,9 +19,6 @@ public class RegisterCompanyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_company);
 
-        //Toast message to be shown when this activity starts
-        Toast.makeText(getApplicationContext(), "Only one contact and address can be created during registration.\nAdditional Contacts can be added after registration", Toast.LENGTH_LONG).show();
-
         final Button clientOptBut = (Button) findViewById(R.id.clientOptionBut);
 
         clientOptBut.setOnClickListener(new View.OnClickListener() {
