@@ -25,34 +25,40 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
 
-        TextView forgotPw = (TextView) findViewById(R.id.forgortPwLink);
+        final TextView forgotPw = (TextView) findViewById(R.id.forgortPwLink);
 
         forgotPw.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                forgotPw.startAnimation(anim);
                 Intent forgotPasswordOpen = new Intent(v.getContext(), ForgotPasswordActivity.class);
                 startActivity(forgotPasswordOpen);
             }
         });
 
-        Button registerBut = (Button) findViewById(R.id.registerBut);
+        final Button registerBut = (Button) findViewById(R.id.registerBut);
 
         registerBut.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                registerBut.startAnimation(anim);
                 Intent registerPageOpen = new Intent(v.getContext(), RegisterAccountActivity.class);
                 startActivity(registerPageOpen);
             }
         });
 
-        Button login = (Button) findViewById(R.id.loginBut);
+        final Button login = (Button) findViewById(R.id.loginBut);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
+                login.startAnimation(anim);
                 Intent dash = new Intent(v.getContext(), DashActivity.class);
                 if(loginValidation())
                 {
