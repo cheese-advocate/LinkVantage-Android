@@ -20,7 +20,7 @@ public class Conect extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        String urlString = "http://192.168.0.151/WebPortal/mobilePortal.php";
+        String urlString = "http://192.168.0.109/WebPortal/mobilePortal.php";
         String data = "post=";
         data = data + objects[0];
         String response = "";
