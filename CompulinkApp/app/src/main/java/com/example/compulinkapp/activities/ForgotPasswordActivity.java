@@ -2,6 +2,8 @@ package com.example.compulinkapp.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -61,8 +63,51 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 }
                 else//valid email
                 {
-                    Intent newPassword = new Intent(v.getContext(), NewPasswordActivity.class);
-                    startActivity(newPassword);
+                    Toast.makeText(ForgotPasswordActivity.this, "An Email containing an OTP has been sent to you", Toast.LENGTH_SHORT).show();
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                    builder.setTitle("Enter OTP");
+
+                    final EditText otpInp = new EditText(v.getContext());
+                    builder.setView(otpInp);
+
+                    builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //Purposely left empty as this method gets overridden by another method
+                        }
+                    });
+
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel(); //Closes the dialog
+                        }
+                    });
+
+                    final AlertDialog dialog = builder.create();
+                    dialog.show();
+                    /**
+                     *Used to validate the OTP and will only close the dialog box if the OTP is valid
+                     * Validation can be done in the method below
+                     */
+                    dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            String otp;
+                            otp = otpInp.getText().toString().trim();
+
+                            if(otp.equals(""))
+                            {
+                                Toast.makeText(ForgotPasswordActivity.this, "OTP is empty", Toast.LENGTH_SHORT).show();
+                            }
+                            else
+                            {
+                                dialog.dismiss(); //Closes the dialog
+                                Intent newPassword = new Intent(getApplicationContext(), NewPasswordActivity.class);
+                                startActivity(newPassword); //Starts the new activity
+                            }
+                        }
+                    });
                 }
 
             }
