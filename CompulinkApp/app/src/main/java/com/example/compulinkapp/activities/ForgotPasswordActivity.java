@@ -23,11 +23,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        /**
-         * General useful information to the user, adds to user friendliness
-         */
-        Toast.makeText(getApplicationContext(), "To reset your password an OTP will be sent to you either via\nEmail or\nTo your account on the website", Toast.LENGTH_LONG).show();
-
         final Button returnToLogin = (Button) findViewById(R.id.backToLogin);
 
         returnToLogin.setOnClickListener(new View.OnClickListener()

@@ -65,22 +65,6 @@
             app:layout_constraintTop_toBottomOf="@+id/SettingsTitle" />
 
         <TextView
-            android:id="@+id/txt_notification_settings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/montserrat"
-            android:text="@string/notification_settings"
-            android:textColor="@color/textColor"
-            android:textSize="14dp"
-            app:layout_constraintBottom_toBottomOf="@+id/notification_settings"
-            app:layout_constraintStart_toStartOf="@+id/notification_settings"
-            app:layout_constraintTop_toTopOf="@+id/notification_settings"
-            app:layout_constraintVertical_bias="1.0" />
-
-        <TextView
             android:id="@+id/txt_help"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -109,6 +93,22 @@
             app:layout_constraintBottom_toBottomOf="@+id/about_opt"
             app:layout_constraintStart_toStartOf="@+id/about_opt"
             app:layout_constraintTop_toTopOf="@+id/about_opt" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:theme="@style/ThemeOverlay.switchTheme"
+            android:id="@+id/notificationsOnOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:text="@string/notification_settings"
+            android:textColor="@color/textColor"
+            android:textSize="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/notification_settings"
+            app:layout_constraintStart_toStartOf="@+id/notification_settings"
+            app:layout_constraintTop_toTopOf="@+id/notification_settings" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
