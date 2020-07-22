@@ -1,4 +1,5 @@
 <resources>
+    <string name="testOTP">1234</string>
     <string name="app_name">LINKVANTAGE</string>
     <string name="login_title">LINKVANTAGE</string>
     <string name="logo">login page logo</string>
@@ -49,4 +50,5 @@
     <string name="regInfo">Only one contact and address can be created during registration additional ones can be added after registration</string>
     <string name="regInfoPrivClient">Only one contact can be created during registration additional ones can be added after registration</string>
     <string name="otpInfo">To reset your password an OTP will be sent to you either via email or to your account on the website</string>
+    <string name="otpMessage">Generated OTP to be used for password recovery</string>
 </resources>

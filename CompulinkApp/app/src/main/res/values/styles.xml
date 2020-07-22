@@ -20,8 +20,9 @@
     </style>
 
     <style name="dialog_theme" parent="Theme.AppCompat.Dialog.Alert">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textColorPrimary">@color/textColor</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <style name="ThemeOverlay.switchTheme" parent="Theme.AppCompat.Light.DarkActionBar">
