@@ -20,7 +20,7 @@ public class Conect extends AsyncTask {
     @Override
     protected Object doInBackground(Object[] objects) {
 
-        String urlString = "http://192.168.0.109/WebPortal/mobilePortal.php";
+        String urlString = "http://10.0.0.21/WebPortal/mobilePortal.php";
         String data = "post=";
         data = data + objects[0];
         String response = "";
@@ -67,7 +67,7 @@ public class Conect extends AsyncTask {
             Log.d("errror" ,"Error message" + e.getStackTrace());
         }
 
-        Log.d("Response:" ,"Response from text file: " + response);
+        Log.d("Response:" ,"Removable Connect Class Echo: " + response);
         return response;
     }
 

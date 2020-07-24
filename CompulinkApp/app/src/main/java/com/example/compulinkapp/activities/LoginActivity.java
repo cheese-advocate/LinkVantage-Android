@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
         //Validation - End
     };
     //loginValidation Method - End
-//loginCredentialCheck Method - Start
+//loginCredentialCheck Method - START
     private String loginCredentialCheck() throws ExecutionException, InterruptedException, ExecutionException {
 
         //Initialising variables from user_input_fields - Start
@@ -133,11 +133,12 @@ public class LoginActivity extends AppCompatActivity {
 
         Conect LoginConnection = new Conect();
 
-        String testing = (String) LoginConnection.execute(postVar).get();
-        Log.d("Testing Response:" ,"Android Recieved response: " + testing + "and some more" + testing + testing + testing + testing);
+        String loginResponse = (String) LoginConnection.execute(postVar).get();
+        Log.d("Testing Response:" ,"Android Recieved response: " + loginResponse );
 
 
-        return testing;
+        return loginResponse;
     };
+//loginCredentialCheck Method - END
 
 }

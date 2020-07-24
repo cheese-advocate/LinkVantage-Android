@@ -23,6 +23,7 @@ public class RegisterAccountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_account);
 
+        //Application Activity Sequencing - Register Company - START
         final Button companyOptBut = (Button) findViewById(R.id.companyOptionBut);
 
         companyOptBut.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +35,7 @@ public class RegisterAccountActivity extends AppCompatActivity {
                 startActivity(switchOpt);
             }
         });
+        //Application Activity Sequencing - Register Company - END
 
  // - Assigning Inputs - Start
         // - Contact Information - Start
@@ -59,25 +61,19 @@ public class RegisterAccountActivity extends AppCompatActivity {
         regBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Button Animations - Start
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 regBut.startAnimation(anim);
-
-                InputValidatorHelper helper = new InputValidatorHelper();
+                //Button Animations - End
 
                 //Variables for Toast - Start
-               // String validity = "true"; // We will assume the TextViews as valid and check against criteria.
-                String validity = "true"; //true actually
+                String validity = "true"; // We will assume the TextViews as valid and check against criteria.
                 Context context = getApplicationContext();
                 CharSequence toastPrint = "The following validation criteria are not met:";
                 int durationToast = Toast.LENGTH_LONG;
                 //Variables for Toast - End
 
-                //Testing Validation - REMOVE
-
-
-
-                //Testing Validation - REMOVE
-
+                InputValidatorHelper helper = new InputValidatorHelper();
 
  //Validation - Start
                 //Username Validation - Start
@@ -278,32 +274,31 @@ public class RegisterAccountActivity extends AppCompatActivity {
 
 //Validity True - Start
 
+                if(validity.equals("true")){
 
-                //Constructing Post Variable - Start
-                String postVar = "RegisterClient:";
+                    //Constructing Post Variable - Start
+                    String postVar = "HANDLE_REGISTER_CLIENT";
 
-                postVar = postVar   + "\n"          + "username="    + username.getText().toString();
-                postVar = postVar + "\n"     + "password=" +  password.getText().toString();
-                postVar = postVar + "\n"     + "firstName="   + firstname.getText().toString();
-                postVar = postVar + "\n"     + "lastName="    + lastname.getText().toString();
-                postVar = postVar + "\n"     + "email="       + email.getText().toString();
-                postVar = postVar + "\n"     + "phone="       + phone.getText().toString();
+                    postVar = postVar + "-" + "username="    + username     .getText().toString();
+                    postVar = postVar + "-" + "password="    + password     .getText().toString();
+                    postVar = postVar + "-" + "firstName="   + firstname    .getText().toString();
+                    postVar = postVar + "-" + "lastName="    + lastname     .getText().toString();
+                    postVar = postVar + "-" + "email="       + email        .getText().toString();
+                    postVar = postVar + "-" + "phone="       + phone        .getText().toString();
 
-                postVar = postVar + "\n"     + "number="      + number.getText().toString();
-                postVar = postVar + "\n"     + "name="        + name.getText().toString();
-                postVar = postVar + "\n"     + "city="        + city.getText().toString();
-                postVar = postVar + "\n"     + "postal="      + postal.getText().toString();
-                postVar = postVar + "\n"     + "addInfo="     + addInfo.getText().toString();
-                //Constructing Post Variable - End
-
-                if(validity.equals("true")){ //
+                    postVar = postVar + "-" + "number="      + number       .getText().toString();
+                    postVar = postVar + "-" + "name="        + name         .getText().toString();
+                    postVar = postVar + "-" + "city="        + city         .getText().toString();
+                    postVar = postVar + "-" + "postal="      + postal       .getText().toString();
+                    postVar = postVar + "-" + "addInfo="     + addInfo      .getText().toString();
+                    //Constructing Post Variable - End
 
                     toastPrint = "Successfully Validated - Registering Account.";
 
-                //Post Process - Start
+                    //Post Process - Start
                     Conect conect = new Conect();
                     conect.execute(postVar);
-                //Post Process - End
+                    //Post Process - End
                 }
 
                 Toast toast = Toast.makeText(context, toastPrint, durationToast);

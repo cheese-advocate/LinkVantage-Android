@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -13,8 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.compulinkapp.classes.Conect;
 import com.example.compulinkapp.classes.InputValidatorHelper;
 import com.example.compulinkapp.R;
+
+import java.util.concurrent.ExecutionException;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
@@ -58,7 +62,16 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 }
                 else//valid email
                 {
-                    Toast.makeText(ForgotPasswordActivity.this, "An Email containing an OTP has been sent to you", Toast.LENGTH_SHORT).show();
+                    try {
+                        emailOTP(); //e-mail OTP to entered email.
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(ForgotPasswordActivity.this, "If an account for that email exists, an OTP will be sent to you shortly.", Toast.LENGTH_SHORT).show();
+
+
                     final AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
                     builder.setTitle("Enter OTP");
 
@@ -97,9 +110,18 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             }
                             else
                             {
+                                try {
+                                    Log.d("OTP Response:" ,"Entered OTP:" + otp + " , server returned OTP" + fetchOTP() );
+                                } catch (ExecutionException e) {
+                                    e.printStackTrace();
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                //App Activity Transitioning - START
                                 dialog.dismiss(); //Closes the dialog
                                 Intent newPassword = new Intent(getApplicationContext(), NewPasswordActivity.class);
                                 startActivity(newPassword); //Starts the new activity
+                                //App Activity Transitioning - END
                             }
                         }
                     });
@@ -108,4 +130,70 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
         });
     }
+
+//Send OTP to Email - START
+    private String emailOTP() throws ExecutionException, InterruptedException, ExecutionException {
+
+        //Initialising variables from user_input_fields - Start
+        EditText email = findViewById(R.id.emailInp);
+        //Initialising variables from user_input_fields - Start
+
+        //Constructing Post Variable - Start
+        String postVar = "HANDLE_EMAIL_OTP";
+        postVar = postVar   + "-"     + "email="       +  email    .getText()  .toString();
+        //Constructing Post Variable - End
+
+        Conect emailOTP = new Conect();
+
+        String response = (String) emailOTP.execute(postVar).get();
+        Log.d("Testing Response:" ,"e-Mail OTP Response:" + response );
+
+
+        return response;
+    };
+//Send OTP to Email - START
+//Retrieve OTP from server - START
+private String fetchOTP() throws ExecutionException, InterruptedException, ExecutionException {
+
+    //Initialising variables from user_input_fields - Start
+    EditText email = findViewById(R.id.emailInp);
+    //Initialising variables from user_input_fields - Start
+
+    //Constructing Post Variable - Start
+    String postVar = "HANDLE_RETRIEVE_OTP";
+    postVar = postVar   + "-"     + "email="       +  email    .getText()  .toString();
+    //Constructing Post Variable - End
+
+    Conect testingConnection = new Conect();
+
+    String testing = (String) testingConnection.execute(postVar).get();
+    Log.d("Testing Response:" ,"Fetch OTP Response:" + testing );
+
+    return testing;
+};
+//Retrieve OTP from server - END
+//Reset User Password - START
+private String resetPassword() throws ExecutionException, InterruptedException, ExecutionException {
+
+    //Initialising variables from user_input_fields - Start
+    EditText email = findViewById(R.id.emailInp);
+    //Initialising variables from user_input_fields - Start
+
+    //Constructing Post Variable - Start
+    String postVar = "HANDLE_RESET_PASSWORD";
+    postVar = postVar   + "-"     + "email="       +  email    .getText()  .toString();
+    postVar = postVar   + "-"     + "userOTP="     + "031192";    // OTP will go "07P07P" <- here;
+    postVar = postVar   + "-"     + "newPassword=" + "p@sswordd";    // password will go "p@sswordd" <- here;
+    //Constructing Post Variable - End
+
+    Conect testingConnection = new Conect();
+
+    String testing = (String) testingConnection.execute(postVar).get();
+    Log.d("Testing Response:" ,"Reset Password Response" + testing );
+
+    return testing;
+};
+//Reset User Password - END
+
 }
+//FORGOT PASSWORD ACTIVITY - END
