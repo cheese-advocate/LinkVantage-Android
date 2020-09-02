@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/nav_dash">
 
     <fragment
-        android:id="@+id/nav_dashboard"
+        android:id="@+id/nav_extra"
         android:name="com.example.compulinkapp.fragments.DashFragment"
         android:label="DashFragment"
         tools:layout="@layout/fragment_dash"/>
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.compulinkapp.fragments.HomeFragment"
+        android:id="@+id/nav_dash"
+        android:name="com.example.compulinkapp.fragments.HomeDashFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/fragment_home_dash"/>
     <fragment
         android:id="@+id/nav_jobs"
         android:name="com.example.compulinkapp.fragments.JobFragment"
@@ -49,4 +49,9 @@
         android:name="com.example.compulinkapp.fragments.FacebookFeedFragment"
         android:label="FacebookFeedFragment"
         tools:layout="@layout/fragment_facebook_feed"/>
+    <fragment
+        android:id="@+id/nav_sales"
+        android:name="com.example.compulinkapp.fragments.SalesFragment"
+        android:label="SalesFragment"
+        tools:layout="@layout/fragment_sales_management"/>
 </navigation>

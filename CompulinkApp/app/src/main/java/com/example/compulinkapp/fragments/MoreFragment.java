@@ -36,6 +36,7 @@ public class MoreFragment extends Fragment{
         CardView jobManagement = view.findViewById(R.id.job_management_card);
         CardView facebookLink = view.findViewById(R.id.facebookCard);
         CardView location = view.findViewById(R.id.locationCard);
+        CardView sales = view.findViewById(R.id.sales_card);
         //Other cards still required and onClickListeners also required for each
 
         profileManagement.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +53,14 @@ public class MoreFragment extends Fragment{
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 fragmentManager.beginTransaction().replace(R.id.fragment_container, new JobFragment()).addToBackStack("Jobs").commit();
                 //Job fragment to be replaced with job management when it has been added
+            }
+        });
+
+        sales.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragment_container, new SalesFragment()).addToBackStack("Sales").commit();
             }
         });
 

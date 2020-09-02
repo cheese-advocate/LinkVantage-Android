@@ -10,8 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -28,19 +26,18 @@ import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.FileHelper;
 import com.example.compulinkapp.classes.Notification;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
-public class HomeFragment extends Fragment{
+public class HomeDashFragment extends Fragment{
 
     private ArrayList<String> items;
     private ArrayAdapter<String> adapter;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ((DashActivity) getActivity()).setActionBarTitle("Home");
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home_dash, container, false);
     }
 
     @Override
