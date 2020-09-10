@@ -29,6 +29,14 @@ public class SalesFragment extends Fragment{
         super.onViewCreated(view, savedInstanceState);
 
         /**
+         * Initialisation of all the parent layouts to which the content can be added
+         */
+        final LinearLayout clientParent = (LinearLayout) view.findViewById(R.id.client_container_main);
+        final LinearLayout potentialClientParent = (LinearLayout) view.findViewById(R.id.potential_clients_container);
+        final LinearLayout statParent = (LinearLayout) view.findViewById(R.id.stats_container);
+        final LinearLayout feedbackParent = (LinearLayout) view.findViewById(R.id.feedback_container);
+
+        /**
          * Setting the swipe refresh layout
          * The code below sets the look and feel of the swipe refresh layout
          */
@@ -44,16 +52,19 @@ public class SalesFragment extends Fragment{
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //stops refreshing when this method has completed its code
-                swipeRefreshLayout.setRefreshing(false);
+                //On refresh code to come here
+                swipeRefreshLayout.setRefreshing(false); //sets refreshing to stop if this method has completed all the code
             }
         });
 
-        /*THE CODE BELOW IS FOR TESTING ONLY*/
 
+        /*
+        **********************************
+        THE CODE BELOW IS FOR TESTING ONLY
+        **********************************
+        */
 
         Button addClient = view.findViewById(R.id.test_add_btn);
-        final LinearLayout parent = (LinearLayout) view.findViewById(R.id.client_container_main);
 
         addClient.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,12 +72,11 @@ public class SalesFragment extends Fragment{
                 ContentGenerator cg = new ContentGenerator(getContext(), view);
                 //Call this method to create new client as many times as needed
                 //The strings needed to display should just be passed into the method
-                cg.createClientCard(parent, "Edrich Barnard", "Cerebruteq", "18 Williams Street Paarl");
+                cg.createClientCard(clientParent, "Edrich Barnard", "Cerebruteq", "18 Williams Street Paarl");
             }
         });
 
         Button addPotentialClient = view.findViewById(R.id.test_add_btn2);
-        final LinearLayout parent2 = (LinearLayout) view.findViewById(R.id.potential_clients_container);
 
         addPotentialClient.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,7 +84,31 @@ public class SalesFragment extends Fragment{
                 ContentGenerator cg = new ContentGenerator(getContext(), view);
                 //Call this method to create new client as many times as needed
                 //The strings needed to display should just be passed into the method
-                cg.createClientCard(parent2, "Edrich Barnard", "Shows interest in PC upgrade");
+                cg.createClientCard(potentialClientParent, "Edrich Barnard", "Shows interest in PC upgrade");
+            }
+        });
+
+        Button addStat = view.findViewById(R.id.test_add_btn3);
+
+        addStat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentGenerator cg = new ContentGenerator(getContext(), view);
+                //Call this method to create new client as many times as needed
+                //The strings needed to display should just be passed into the method
+                cg.createStatCard(statParent, "Total Sales", "45");
+            }
+        });
+
+        Button addFeedback = view.findViewById(R.id.test_feedbackBtn);
+
+        addFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ContentGenerator cg = new ContentGenerator(getContext(), view);
+                //Call this method to create new client as many times as needed
+                //The strings needed to display should just be passed into the method
+                cg.createFeedbackCard(feedbackParent, "Edrich Barnard", "PC Repair", "Overall Good job. Great service");
             }
         });
     }

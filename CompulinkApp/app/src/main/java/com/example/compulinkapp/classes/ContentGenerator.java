@@ -269,6 +269,167 @@ public class ContentGenerator {
     }
 
     /**
+     * Creates a stat card to display the stats on the sales lead management screen
+     *
+     * @param parent the parent layout of the card to be added
+     * @param statDesc the description of the stat
+     * @param stat the actual stat
+     */
+    public void createStatCard(LinearLayout parent, String statDesc, String stat)
+    {
+        //Get the font needed
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Layout to be placed in card
+        final LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set the layout params of the new card
+        CardView.LayoutParams params = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the new card
+        params.rightMargin = getPixels(2);
+        params.width = getPixels(100);
+        params.height = getPixels(100);
+        card.setLayoutParams(params);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#03AAFB"));
+
+        //Layout parameters for text
+        LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsText.weight = 1;
+
+        TextView desc = new TextView(context);
+        desc.setLayoutParams(paramsText);
+        desc.setText(statDesc);
+        desc.setTextColor(Color.parseColor("#F3F3F3"));
+        desc.setTextSize(getPixels(7));
+        desc.setTypeface(font);
+        desc.setGravity(Gravity.CENTER|Gravity.CENTER_VERTICAL);
+
+        TextView statInfo = new TextView(context);
+        statInfo.setLayoutParams(paramsText);
+        statInfo.setText(stat);
+        statInfo.setTextColor(Color.parseColor("#F3F3F3"));
+        statInfo.setTextSize(getPixels(12));
+        statInfo.setTypeface(font);
+        statInfo.setGravity(Gravity.CENTER|Gravity.CENTER_VERTICAL);
+
+        //Add text to layout
+        layout.addView(desc);
+        layout.addView(statInfo);
+        //Add text view to card
+        card.addView(layout);
+        //Add new card to layout
+        parent.addView(card);
+    }
+
+    /**
+     * Creates a feedback card on the sales lead management screen
+     *
+     * @param parent the parent of the card to be created
+     * @param client the name of the client who made the review
+     * @param job the name of the job being reviewed
+     * @param feedback the feedback given
+     */
+    public void createFeedbackCard(LinearLayout parent, String client, String job, String feedback)
+    {
+        //Get the font needed
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Layout to be placed in card
+        final LinearLayout layout_outer = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout_outer.setOrientation(LinearLayout.HORIZONTAL);
+        layout_outer.setLayoutParams(layoutParams);
+
+        //Layout params for the textView
+        LinearLayout.LayoutParams clientNameParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        clientNameParams.leftMargin = getPixels(8);
+        clientNameParams.rightMargin = getPixels(8);
+        clientNameParams.gravity = Gravity.CENTER;
+
+        //Layout params for the textView
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        textParams.leftMargin = getPixels(8);
+        textParams.rightMargin = getPixels(8);
+
+        //Design the text view
+        TextView clientName = new TextView(context);
+        clientName.setLayoutParams(clientNameParams);
+        clientName.setText(client);
+        clientName.setTextColor(Color.parseColor("#03AAFB"));
+        clientName.setTextSize(getPixels(7));
+        clientName.setTypeface(font);
+        clientName.setGravity(Gravity.CENTER);
+
+        //Set inner layout layout params
+        final LinearLayout layout_inner = new LinearLayout(context);
+        LinearLayout.LayoutParams inner_layoutparams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout_inner.setOrientation(LinearLayout.VERTICAL);
+        layout_inner.setBackgroundColor(Color.parseColor("#03AAFB"));
+        layout_inner.setLayoutParams(inner_layoutparams);
+
+        TextView jobDesc = new TextView(context);
+        jobDesc.setLayoutParams(textParams);
+        jobDesc.setText(job);
+        jobDesc.setTextColor(Color.parseColor("#373741"));
+        jobDesc.setTextSize(getPixels(7));
+        jobDesc.setTypeface(font);
+        jobDesc.setGravity(Gravity.CENTER|Gravity.START);
+
+        TextView feedbackTv = new TextView(context);
+        feedbackTv.setLayoutParams(textParams);
+        feedbackTv.setText(feedback);
+        feedbackTv.setTextColor(Color.parseColor("#F3F3F3"));
+        feedbackTv.setTextSize(getPixels(7));
+        feedbackTv.setTypeface(font);
+        feedbackTv.setGravity(Gravity.CENTER|Gravity.START);
+
+        final CardView card = new CardView(context);
+        //Set the layout params of the new card
+        CardView.LayoutParams params_card = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.MATCH_PARENT
+        );
+        params_card.width = getPixels(350);
+        params_card.rightMargin = getPixels(5);
+        card.setLayoutParams(params_card);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+
+        layout_inner.addView(jobDesc);
+        layout_inner.addView(feedbackTv);
+
+        layout_outer.addView(clientName);
+        layout_outer.addView(layout_inner);
+
+        card.addView(layout_outer);
+        parent.addView(card);
+    }
+
+    /**
      * Changes the specified card view's parent. If the card needs to be displayed in
      * different location after user performs specific action
      *
