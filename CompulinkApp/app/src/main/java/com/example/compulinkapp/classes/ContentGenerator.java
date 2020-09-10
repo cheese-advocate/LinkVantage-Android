@@ -2,12 +2,16 @@ package com.example.compulinkapp.classes;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.example.compulinkapp.R;
 
@@ -100,6 +104,168 @@ public class ContentGenerator {
         card.addView(tv);
         //Add new card to layout
         mainLayout.addView(card);
+    }
+
+    /**
+     * Creates a new client card to display all the existing clients
+     *
+     * @param parent the parent of the card to be created
+     * @param client the name of the client
+     * @param company the name of the company
+     * @param locationString the location of the client
+     */
+    public void createClientCard(LinearLayout parent, String client, String company, String locationString)
+    {
+        //Get the font needed
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Layout to be placed in card
+        final LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set the layout params of the new card
+        CardView.LayoutParams params = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the new card
+        params.bottomMargin = getPixels(2);
+        params.height = getPixels(40);
+        card.setLayoutParams(params);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+
+        //Custom parameters for location due to longer string length
+        LinearLayout.LayoutParams paramsLocation = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        //Given more weight/space due to longer string
+        paramsLocation.width = getPixels(150);
+        paramsLocation.gravity = Gravity.CENTER;
+        //Layout parameters for middle text
+        LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsText.width = getPixels(100);
+        paramsText.gravity = Gravity.CENTER;
+        //Layout parameters for start text due to margin needed
+        LinearLayout.LayoutParams paramsTextStart = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsTextStart.setMarginStart(getPixels(8));
+        paramsTextStart.width = getPixels(100);
+        paramsTextStart.gravity = Gravity.CENTER;
+
+        //Design the text view
+        TextView clientName = new TextView(context);
+        clientName.setLayoutParams(paramsTextStart);
+        clientName.setText(client);
+        clientName.setTextColor(Color.parseColor("#F3F3F3"));
+        clientName.setTextSize(getPixels(7));
+        clientName.setTypeface(font);
+        //Design the text view
+        TextView companyName = new TextView(context);
+        companyName.setLayoutParams(paramsText);
+        companyName.setText(company);
+        companyName.setTextColor(Color.parseColor("#F3F3F3"));
+        companyName.setTextSize(getPixels(7));
+        companyName.setTypeface(font);
+        //Design the text view
+        TextView location = new TextView(context);
+        location.setLayoutParams(paramsLocation);
+        location.setText(locationString);
+        location.setTextColor(Color.parseColor("#F3F3F3"));
+        location.setTextSize(getPixels(7));
+        location.setTypeface(font);
+
+        //Add text to layout
+        layout.addView(clientName);
+        layout.addView(companyName);
+        layout.addView(location);
+        //Add text view to card
+        card.addView(layout);
+        //Add new card to layout
+        parent.addView(card);
+    }
+
+    /**
+     * Adds a potential client to the sales lead management page
+     * Has the same name but receives different parameters
+     *
+     * @param parent the parent of the card to be added
+     * @param client the name of the potential client
+     * @param status the status or reason why the are potentially a client
+     */
+    public void createClientCard(LinearLayout parent, String client, String status)
+    {
+        //Get the font needed
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Layout to be placed in card
+        final LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set the layout params of the new card
+        CardView.LayoutParams params = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the new card
+        params.bottomMargin = getPixels(2);
+        params.height = getPixels(40);
+        card.setLayoutParams(params);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+
+        //Layout parameters for start text due to margin needed
+        LinearLayout.LayoutParams paramsTextStart = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsTextStart.setMarginStart(getPixels(8));
+        paramsTextStart.weight = 1;
+        paramsTextStart.gravity = Gravity.CENTER;
+
+        //Layout parameters for text
+        LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        paramsText.weight = 1;
+        paramsText.gravity = Gravity.CENTER;
+
+        TextView clientName = new TextView(context);
+        clientName.setLayoutParams(paramsTextStart);
+        clientName.setText(client);
+        clientName.setTextColor(Color.parseColor("#F3F3F3"));
+        clientName.setTextSize(getPixels(7));
+        clientName.setTypeface(font);
+
+        TextView statusTv = new TextView(context);
+        statusTv.setLayoutParams(paramsTextStart);
+        statusTv.setText(status);
+        statusTv.setTextColor(Color.parseColor("#F3F3F3"));
+        statusTv.setTextSize(getPixels(7));
+        statusTv.setTypeface(font);
+
+        //Add text to layout
+        layout.addView(clientName);
+        layout.addView(statusTv);
+        //Add text view to card
+        card.addView(layout);
+        //Add new card to layout
+        parent.addView(card);
     }
 
     /**
