@@ -342,6 +342,16 @@
                 app:layout_constraintTop_toBottomOf="@id/feedback_scroll"
                 android:layout_marginTop="8dp"/>
 
+            <Button
+                android:id="@+id/popupTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Show Popup"
+                app:layout_constraintTop_toBottomOf="@id/test_feedbackBtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="8dp"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
