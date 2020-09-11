@@ -54,6 +54,7 @@ public class FacebookFeedFragment extends Fragment{
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if(keyCode == KeyEvent.KEYCODE_BACK && facebookView.canGoBack())
                 {
+                    //Goes back inside the webview and prevents the user from exiting the web view
                     facebookView.goBack();
                     return true;
                 }

@@ -39,14 +39,14 @@ public class SalesFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        final Dialog popupDialog = new Dialog(getContext());
+        final Dialog popupDialog = new Dialog(getContext());//Dialog used to create and display popup dialog
         /**
          * Initialisation of all the parent layouts to which the content can be added
          */
-        final LinearLayout clientParent = view.findViewById(R.id.client_container_main);
-        final LinearLayout potentialClientParent = view.findViewById(R.id.potential_clients_container);
-        final LinearLayout statParent = view.findViewById(R.id.stats_container);
-        final LinearLayout feedbackParent = view.findViewById(R.id.feedback_container);
+        final LinearLayout clientParent = view.findViewById(R.id.client_container_main);//Existing clients are added to this layout
+        final LinearLayout potentialClientParent = view.findViewById(R.id.potential_clients_container);//Potential clients are added to this layout
+        final LinearLayout statParent = view.findViewById(R.id.stats_container);//Stats are added to this layout
+        final LinearLayout feedbackParent = view.findViewById(R.id.feedback_container);//Feedback cards are added here
 
         /**
          * Setting the swipe refresh layout
