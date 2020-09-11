@@ -21,6 +21,14 @@ import com.example.compulinkapp.R;
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.classes.ContentGenerator;
 
+/**
+ * TODO
+ * Establish connection with web server
+ * Retrieve necessary data from SQL for the sales lead management screen
+ * Format the data and display it in the necessary locations
+ * Enable technicians to add new sales leads to the database from sales lead management screen
+ */
+
 public class SalesFragment extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -118,6 +126,8 @@ public class SalesFragment extends Fragment{
 
         /**
          * Creates a popup window where the technician can add a new sales lead
+         *
+         * THIS CODE IS NOT FOR TESTING PURPOSES ONLY THE OTHER BUTTONS ARE
          */
         Button popup = view.findViewById(R.id.popupTest);
         popup.setOnClickListener(new View.OnClickListener() {
