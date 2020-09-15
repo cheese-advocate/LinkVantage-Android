@@ -3,7 +3,9 @@ package com.example.compulinkapp.fragments;
 import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,17 +21,27 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.classes.Conect;
 import com.example.compulinkapp.classes.ContentGenerator;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.concurrent.ExecutionException;
 
 /**
  * TODO
- * Establish connection with web server
  * Retrieve necessary data from SQL for the sales lead management screen
  * Format the data and display it in the necessary locations
  * Enable technicians to add new sales leads to the database from sales lead management screen
  */
 
 public class SalesFragment extends Fragment{
+
+    String postVar = null;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ((DashActivity) getActivity()).setActionBarTitle("Sales Management");
@@ -40,14 +52,14 @@ public class SalesFragment extends Fragment{
     public void onViewCreated(@NonNull final View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final Dialog popupDialog = new Dialog(getContext());//Dialog used to create and display popup dialog
+        final ContentGenerator cg = new ContentGenerator(getContext(), view);
         /**
          * Initialisation of all the parent layouts to which the content can be added
-         */
+         * */
         final LinearLayout clientParent = view.findViewById(R.id.client_container_main);//Existing clients are added to this layout
         final LinearLayout potentialClientParent = view.findViewById(R.id.potential_clients_container);//Potential clients are added to this layout
         final LinearLayout statParent = view.findViewById(R.id.stats_container);//Stats are added to this layout
         final LinearLayout feedbackParent = view.findViewById(R.id.feedback_container);//Feedback cards are added here
-
         /**
          * Setting the swipe refresh layout
          * The code below sets the look and feel of the swipe refresh layout
@@ -66,61 +78,6 @@ public class SalesFragment extends Fragment{
             public void onRefresh() {
                 //On refresh code to come here
                 swipeRefreshLayout.setRefreshing(false); //sets refreshing to stop if this method has completed all the code
-            }
-        });
-
-
-        /*
-        **********************************
-        THE CODE BELOW IS FOR TESTING ONLY
-        **********************************
-        */
-
-        Button addClient = view.findViewById(R.id.test_add_btn);
-
-        addClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContentGenerator cg = new ContentGenerator(getContext(), view);
-                //Call this method to create new client as many times as needed
-                //The strings needed to display should just be passed into the method
-                cg.createClientCard(clientParent, "Edrich Barnard", "Cerebruteq", "18 Williams Street Paarl");
-            }
-        });
-
-        Button addPotentialClient = view.findViewById(R.id.test_add_btn2);
-
-        addPotentialClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContentGenerator cg = new ContentGenerator(getContext(), view);
-                //Call this method to create new client as many times as needed
-                //The strings needed to display should just be passed into the method
-                cg.createClientCard(potentialClientParent, "Edrich Barnard", "Shows interest in PC upgrade");
-            }
-        });
-
-        Button addStat = view.findViewById(R.id.test_add_btn3);
-
-        addStat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContentGenerator cg = new ContentGenerator(getContext(), view);
-                //Call this method to create new client as many times as needed
-                //The strings needed to display should just be passed into the method
-                cg.createStatCard(statParent, "Total Sales", "45");
-            }
-        });
-
-        Button addFeedback = view.findViewById(R.id.test_feedbackBtn);
-
-        addFeedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ContentGenerator cg = new ContentGenerator(getContext(), view);
-                //Call this method to create new client as many times as needed
-                //The strings needed to display should just be passed into the method
-                cg.createFeedbackCard(feedbackParent, "Edrich Barnard", "PC Repair", "Overall Good job. Great service");
             }
         });
 
@@ -151,5 +108,86 @@ public class SalesFragment extends Fragment{
                 popupDialog.show();
             }
         });
+
+        try
+        {
+            getClients(clientParent, cg);
+            getStats(statParent, cg);
+        }
+        catch (ExecutionException e)
+        {
+            e.printStackTrace();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void getClients(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
+    {
+        Conect connection = new Conect();
+        postVar = "GET_CLIENTS";
+        //Get the JSON response from PHP
+        String response = (String) connection.execute(postVar).get();
+        //Put the response in a JSON Array
+        JSONArray data = new JSONArray(response);
+        JSONObject obj;
+
+        String fullName;
+        String location;
+        String company;
+
+        for (int i = 0; i < data.length(); i++)
+        {
+            obj = data.getJSONObject(i);
+            fullName = obj.getString("FullName");
+            location = obj.getString("location");
+
+            if(obj.isNull("companyName"))
+            {
+                company = "N/A";
+            }
+            else company = obj.getString("companyName");
+
+            cg.createClientCard(parent, fullName, company, location);
+            Log.d("Number of times run", "Number--" + i);
+        }
+        connection.cancel(true);//Stops the thread when code completes
+    }
+
+    public void getPotentialClients()
+    {
+        //Still awaiting data in the database
+    }
+
+    public void getStats(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
+    {
+        Conect connection = new Conect();
+        postVar = "GET_STATS";
+        String response = (String) connection.execute(postVar).get();
+        JSONObject data  = new JSONObject(response);
+
+        cg.createStatCard(parent, "Registered Companies", data.getString("companies"));
+        cg.createStatCard(parent, "Total Jobs", data.getString("jobs"));
+        cg.createStatCard(parent, "Total Clients", data.getString("clients"));
+
+        connection.cancel(true);//Stops the thread when code completes
+    }
+
+    public void getFeedback() throws ExecutionException, InterruptedException, JSONException
+    {
+        Conect connection = new Conect();
+        postVar = "GET_FEEDBACK";
+        String response = (String) connection.execute(postVar).get();
+
+        //Code to follow
+        
+
+        connection.cancel(true);//Stops the thread when code completes
     }
 }

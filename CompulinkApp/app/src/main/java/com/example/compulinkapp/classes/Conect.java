@@ -27,7 +27,7 @@ public class Conect extends AsyncTask {
 
         try{
 
-            Log.d("Test-log" ,"Attemping to post" + data + "to" + urlString );
+            Log.d("Test-log " ,"Attemping to post " + data + " to " + urlString );
 
             URL url = new URL (urlString);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();

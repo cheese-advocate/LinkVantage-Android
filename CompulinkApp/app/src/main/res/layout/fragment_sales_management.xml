@@ -36,7 +36,6 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                app:layout_constraintBottom_toTopOf="@id/test_add_btn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/existing_clients_title">
@@ -91,17 +90,6 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <Button
-                android:id="@+id/test_add_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/client_container_scrollView" />
-
             <TextView
                 android:id="@+id/potential_clients_title"
                 android:layout_width="wrap_content"
@@ -113,7 +101,7 @@
                 android:textColor="@color/textColor"
                 android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/test_add_btn" />
+                app:layout_constraintTop_toBottomOf="@+id/client_container_scrollView" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/potential_clients_scrollview"
@@ -170,17 +158,6 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <Button
-                android:id="@+id/test_add_btn2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/potential_clients_scrollview" />
-
             <!--New content to continue from here-->
             <HorizontalScrollView
                 android:id="@+id/stats_scroll"
@@ -192,7 +169,7 @@
                 android:layout_marginBottom="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/test_add_btn2">
+                app:layout_constraintTop_toBottomOf="@id/potential_clients_scrollview">
 
                 <LinearLayout
                     android:id="@+id/stats_container"
@@ -240,17 +217,6 @@
 
             </HorizontalScrollView>
 
-            <Button
-                android:id="@+id/test_add_btn3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/stats_scroll" />
-
             <TextView
                 android:id="@+id/feedback_title"
                 android:layout_width="wrap_content"
@@ -262,7 +228,7 @@
                 android:textColor="@color/textColor"
                 android:textSize="15dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/test_add_btn3" />
+                app:layout_constraintTop_toBottomOf="@id/stats_scroll" />
 
             <HorizontalScrollView
                 android:id="@+id/feedback_scroll"
@@ -332,22 +298,11 @@
             </HorizontalScrollView>
 
             <Button
-                android:id="@+id/test_feedbackBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/feedback_scroll"
-                android:layout_marginTop="8dp"/>
-
-            <Button
                 android:id="@+id/popupTest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Show Popup"
-                app:layout_constraintTop_toBottomOf="@id/test_feedbackBtn"
+                app:layout_constraintTop_toBottomOf="@id/feedback_scroll"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="8dp"/>
