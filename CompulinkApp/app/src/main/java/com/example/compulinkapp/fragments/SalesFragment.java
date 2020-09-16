@@ -79,12 +79,15 @@ public class SalesFragment extends Fragment{
                 /**
                  * On refresh of the screen the following code will execute and query the database
                  * again. The screen will thus update if changes occur.
+                 *
+                 * STILL WORK IN PROGRESS, NOT WORKING
                  */
                 try
                 {
                     getClients(clientParent, cg);
                     getStats(statParent, cg);
                     getFeedback(feedbackParent, cg);
+                    getPotentialClients(potentialClientParent, cg);
                 }
                 catch (ExecutionException e)
                 {
@@ -136,6 +139,7 @@ public class SalesFragment extends Fragment{
             getClients(clientParent, cg);
             getStats(statParent, cg);
             getFeedback(feedbackParent, cg);
+            getPotentialClients(potentialClientParent, cg);
         }
         catch (ExecutionException e)
         {
@@ -183,9 +187,28 @@ public class SalesFragment extends Fragment{
         connection.cancel(true);//Stops the thread when code completes
     }
 
-    public void getPotentialClients()
+    public void getPotentialClients(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
-        //Still awaiting data in the database
+        Conect connection = new Conect();
+        postVar = "GET_POTENTIAL_CLIENTS";
+
+        String response = (String) connection.execute(postVar).get();
+        JSONArray data = new JSONArray(response);
+        JSONObject obj;
+
+        String fullName;
+        String interest;
+
+        for (int i = 0; i < data.length(); i++)
+        {
+            obj = data.getJSONObject(i);
+
+            fullName = obj.getString("FullName");
+            interest = obj.getString("interest");
+
+            cg.createClientCard(parent, fullName, interest);
+        }
+        connection.cancel(true);//Stops thread when code completes
     }
 
     public void getStats(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
