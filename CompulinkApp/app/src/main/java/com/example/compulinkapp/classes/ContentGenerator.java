@@ -18,7 +18,7 @@ import com.example.compulinkapp.R;
 public class ContentGenerator {
     Context context;
     View view;
-    
+    GoogleMapsHelper helper;
     /**
      * Constructor to set the context and view for the class
      * @param ctx
@@ -27,6 +27,7 @@ public class ContentGenerator {
     {
         context = ctx;
         view = view_sent;
+        helper = new GoogleMapsHelper(ctx);
     }
 
     /**
@@ -178,12 +179,20 @@ public class ContentGenerator {
         companyName.setTextSize(getPixels(7));
         companyName.setTypeface(font);
         //Design the text view
-        TextView location = new TextView(context);
+        final TextView location = new TextView(context);
         location.setLayoutParams(paramsLocation);
         location.setText(locationString);
         location.setTextColor(Color.parseColor("#F3F3F3"));
         location.setTextSize(getPixels(7));
         location.setTypeface(font);
+
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = location.getText().toString();
+                helper.openLocation(text);
+            }
+        });
 
         //Add text to layout
         layout.addView(clientName);
