@@ -40,7 +40,7 @@ import java.util.concurrent.ExecutionException;
  */
 
 public class SalesFragment extends Fragment{
-
+    //Post variable to be used in server communication
     String postVar = null;
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -76,7 +76,29 @@ public class SalesFragment extends Fragment{
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                //On refresh code to come here
+                /**
+                 * On refresh of the screen the following code will execute and query the database
+                 * again. The screen will thus update if changes occur.
+                 */
+                try
+                {
+                    getClients(clientParent, cg);
+                    getStats(statParent, cg);
+                    getFeedback(feedbackParent, cg);
+                }
+                catch (ExecutionException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
                 swipeRefreshLayout.setRefreshing(false); //sets refreshing to stop if this method has completed all the code
             }
         });
@@ -113,6 +135,7 @@ public class SalesFragment extends Fragment{
         {
             getClients(clientParent, cg);
             getStats(statParent, cg);
+            getFeedback(feedbackParent, cg);
         }
         catch (ExecutionException e)
         {
@@ -179,14 +202,33 @@ public class SalesFragment extends Fragment{
         connection.cancel(true);//Stops the thread when code completes
     }
 
-    public void getFeedback() throws ExecutionException, InterruptedException, JSONException
+    public void getFeedback(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
         Conect connection = new Conect();
         postVar = "GET_FEEDBACK";
         String response = (String) connection.execute(postVar).get();
+        JSONArray data = new JSONArray(response);
+        JSONObject obj;
 
-        //Code to follow
-        
+        String fullName;
+        String desc;
+        String feedback;
+
+        for (int i = 0; i < data.length(); i++)
+        {
+            obj = data.getJSONObject(i);
+            fullName = obj.getString("clientName");
+
+            if(obj.isNull("jobDescription"))
+            {
+                desc = "No Description";
+            }
+            else desc = obj.getString("jobDescription");
+
+            feedback = obj.getString("content");
+
+            cg.createFeedbackCard(parent, fullName, desc, feedback);
+        }
 
         connection.cancel(true);//Stops the thread when code completes
     }
