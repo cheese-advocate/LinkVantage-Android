@@ -182,7 +182,7 @@ public class ContentGenerator {
         final TextView location = new TextView(context);
         location.setLayoutParams(paramsLocation);
         location.setText(locationString);
-        location.setTextColor(Color.parseColor("#F3F3F3"));
+        location.setTextColor(Color.parseColor("#03AAFB"));
         location.setTextSize(getPixels(7));
         location.setTypeface(font);
 
@@ -190,6 +190,7 @@ public class ContentGenerator {
             @Override
             public void onClick(View v) {
                 String text = location.getText().toString();
+                //Make use of dialog message to determine if location should be opened or navigated to
                 helper.openLocation(text);
             }
         });
