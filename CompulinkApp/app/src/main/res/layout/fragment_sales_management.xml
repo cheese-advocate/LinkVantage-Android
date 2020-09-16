@@ -46,7 +46,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView
+                    <!--<androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginBottom="2dp"
@@ -84,7 +84,7 @@
                                 android:textColor="@color/textColor" />
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 
@@ -120,7 +120,7 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <androidx.cardview.widget.CardView
+                    <!--<androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:layout_marginBottom="2dp"
@@ -152,7 +152,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 
@@ -177,7 +177,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView
+                    <!--<androidx.cardview.widget.CardView
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="2dp"
@@ -211,7 +211,7 @@
 
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
 
@@ -247,7 +247,7 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <androidx.cardview.widget.CardView
+                    <!--<androidx.cardview.widget.CardView
                         android:layout_width="350dp"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="5dp"
@@ -292,20 +292,25 @@
 
                             </LinearLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>-->
 
                 </LinearLayout>
             </HorizontalScrollView>
 
             <Button
                 android:id="@+id/popupTest"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:text="Show Popup"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:text="ADD SALES LEAD"
+                android:background="@drawable/rounded_button"
                 app:layout_constraintTop_toBottomOf="@id/feedback_scroll"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

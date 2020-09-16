@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="300dp"
-    android:layout_height="370dp"
+    android:layout_height="400dp"
     android:layout_gravity="center"
     android:background="@color/seeThrough">
 
@@ -48,7 +48,7 @@
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/colorPrimaryDark"
         android:fontFamily="@font/montserrat"
-        android:hint="Name and Last Name"
+        android:hint="Name"
         android:inputType="textPersonName"
         android:textColor="@color/textColor"
         android:textColorHint="@color/colorPrimaryDark"
@@ -57,6 +57,35 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/nameIcon"
         app:layout_constraintTop_toBottomOf="@id/popup_title" />
+
+    <ImageView
+        android:id="@+id/lastNameIcon"
+        android:layout_width="35dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_account"
+        app:layout_constraintEnd_toStartOf="@+id/lastNameInp"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameIcon" />
+
+    <EditText
+        android:id="@+id/lastNameInp"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:fontFamily="@font/montserrat"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:textColor="@color/textColor"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/lastNameIcon"
+        app:layout_constraintTop_toBottomOf="@id/nameInp" />
 
     <ImageView
         android:id="@+id/jobIcon"
@@ -68,7 +97,7 @@
         app:layout_constraintEnd_toStartOf="@+id/jobInp"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/lastNameIcon" />
 
     <EditText
         android:id="@+id/jobInp"
@@ -85,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/jobIcon"
-        app:layout_constraintTop_toBottomOf="@id/nameInp" />
+        app:layout_constraintTop_toBottomOf="@id/lastNameInp" />
 
     <ImageView
         android:id="@+id/locationIcon"

@@ -11,9 +11,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -100,8 +102,10 @@ public class SalesFragment extends Fragment{
         popup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final Conect connection = new Conect();
                 //Set the layout to be displayed in the popup
                 popupDialog.setContentView(R.layout.sales_lead_popup);
+
                 //Initialise the close button/image
                 ImageView close = popupDialog.findViewById(R.id.close);
                 //OnClickListener for close button/image
@@ -112,6 +116,63 @@ public class SalesFragment extends Fragment{
                         popupDialog.dismiss();
                     }
                 });
+
+                //Get the add button on the popup
+                Button add = popupDialog.findViewById(R.id.addPotentialClient);
+                //Code to run when add button clicked
+                add.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String success = "FALSE";
+                        EditText fName = popupDialog.findViewById(R.id.nameInp);
+                        EditText lName = popupDialog.findViewById(R.id.lastNameInp);
+                        EditText jobInterest = popupDialog.findViewById(R.id.jobInp);
+                        EditText location = popupDialog.findViewById(R.id.locationInp);
+                        EditText cell = popupDialog.findViewById(R.id.cellInp);
+                        EditText email = popupDialog.findViewById(R.id.emailInpPopup);
+
+                        postVar = "REGISTER_POTENTIAL_CLIENT";
+                        JSONObject data = new JSONObject();
+                        try
+                        {
+                            data.put("firstName", fName.getText().toString());
+                            data.put("lastName", lName.getText().toString());
+                            data.put("jobInterest", jobInterest.getText().toString());
+                            data.put("location", location.getText().toString());
+                            data.put("cell", cell.getText().toString());
+                            data.put("email", email.getText().toString());
+                        }
+                        catch (JSONException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        postVar =  postVar + "-" + data.toString();
+                        try
+                        {
+                            success = connection.execute(postVar).get().toString().trim();
+                        }
+                        catch (ExecutionException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        catch (InterruptedException e)
+                        {
+                            e.printStackTrace();
+                        }
+
+                        if(success.equals("TRUE"))
+                        {
+                            Toast.makeText(getContext(), "New sales lead created", Toast.LENGTH_SHORT).show();
+                            popupDialog.dismiss();
+                        }
+                        else
+                        {
+                            Toast.makeText(getContext(), "An error occurred!", Toast.LENGTH_LONG).show();
+                        }
+                        connection.cancel(true);
+                    }
+                });
+
                 //Prevent the popup from having a weird white border on the sides
                 popupDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 //Show the popup
@@ -121,6 +182,9 @@ public class SalesFragment extends Fragment{
 
         try
         {
+            /**
+             * Contacts the server and generates data based on what is received
+             */
             getClients(clientParent, cg);
             getStats(statParent, cg);
             getFeedback(feedbackParent, cg);

@@ -235,6 +235,7 @@ public class ContentGenerator {
         );
         paramsTextStart.setMarginStart(getPixels(8));
         paramsTextStart.weight = 1;
+        paramsTextStart.width = getPixels(150);
         paramsTextStart.gravity = Gravity.CENTER;
 
         //Layout parameters for text
@@ -243,6 +244,7 @@ public class ContentGenerator {
                 LinearLayout.LayoutParams.WRAP_CONTENT
         );
         paramsText.weight = 1;
+        paramsText.width = getPixels(150);
         paramsText.gravity = Gravity.CENTER;
 
         TextView clientName = new TextView(context);
@@ -253,7 +255,7 @@ public class ContentGenerator {
         clientName.setTypeface(font);
 
         TextView statusTv = new TextView(context);
-        statusTv.setLayoutParams(paramsTextStart);
+        statusTv.setLayoutParams(paramsText);
         statusTv.setText(status);
         statusTv.setTextColor(Color.parseColor("#F3F3F3"));
         statusTv.setTextSize(getPixels(7));
