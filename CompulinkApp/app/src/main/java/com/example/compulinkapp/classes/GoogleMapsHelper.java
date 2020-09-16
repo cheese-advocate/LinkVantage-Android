@@ -27,11 +27,18 @@ public class GoogleMapsHelper {
         context.startActivity(maps);//Start google maps intent
     }
 
+    /**
+     * Receives a location and opens that location in google maps' navigation mode
+     * One click by the user will open the location and they can navigate
+     *
+     * @param address the address to where you want to navigate
+     */
     public void navigateToLocation(String address)
     {
-        Uri uri = Uri.parse("google.navigation:q=" + Uri.encode(address));
-        Intent maps = new Intent(Intent.ACTION_VIEW, uri);
-        maps.setPackage("com.google.android.apps.maps");
-        context.startActivity(maps);
+        //The uri is used by google maps to determine what to do - Open only a location/Navigate to that location etc.
+        Uri uri = Uri.parse("google.navigation:q=" + Uri.encode(address));//Creates the string passed to google maps
+        Intent maps = new Intent(Intent.ACTION_VIEW, uri);//Creates intent that starts google maps
+        maps.setPackage("com.google.android.apps.maps");//Specify to the device to use google maps
+        context.startActivity(maps);//Start google maps intent
     }
 }
