@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,10 +18,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.activities.DashActivity;
+import com.example.compulinkapp.activities.MainActivity;
 import com.example.compulinkapp.classes.Conect;
 import com.example.compulinkapp.classes.ContentGenerator;
 
@@ -79,29 +82,11 @@ public class SalesFragment extends Fragment{
                 /**
                  * On refresh of the screen the following code will execute and query the database
                  * again. The screen will thus update if changes occur.
-                 *
-                 * STILL WORK IN PROGRESS, NOT WORKING
+                 * The fragment gets detached and attached again, thus all the fragment code
+                 * executes again and in doing so UI gets updated
                  */
-                try
-                {
-                    getClients(clientParent, cg);
-                    getStats(statParent, cg);
-                    getFeedback(feedbackParent, cg);
-                    getPotentialClients(potentialClientParent, cg);
-                }
-                catch (ExecutionException e)
-                {
-                    e.printStackTrace();
-                }
-                catch (InterruptedException e)
-                {
-                    e.printStackTrace();
-                }
-                catch (JSONException e)
-                {
-                    e.printStackTrace();
-                }
-
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(SalesFragment.this).attach(SalesFragment.this).commit();
                 swipeRefreshLayout.setRefreshing(false); //sets refreshing to stop if this method has completed all the code
             }
         });
@@ -155,6 +140,15 @@ public class SalesFragment extends Fragment{
         }
     }
 
+    /**
+     * Queries the web server to retrieve the existing clients
+     *
+     * @param parent the parent layout to which clients should be added
+     * @param cg content generator to generate content
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws JSONException
+     */
     public void getClients(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
         Conect connection = new Conect();
@@ -187,6 +181,15 @@ public class SalesFragment extends Fragment{
         connection.cancel(true);//Stops the thread when code completes
     }
 
+    /**
+     * Queries the web server to retrieve all potential clients
+     *
+     * @param parent the parent layout to which content should be added
+     * @param cg content generator to generate new content
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws JSONException
+     */
     public void getPotentialClients(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
         Conect connection = new Conect();
@@ -211,6 +214,15 @@ public class SalesFragment extends Fragment{
         connection.cancel(true);//Stops thread when code completes
     }
 
+    /**
+     * Queries the web server to get the stats from the database
+     *
+     * @param parent parent layout to which content should be added
+     * @param cg content generator to generate new content
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws JSONException
+     */
     public void getStats(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
         Conect connection = new Conect();
@@ -225,6 +237,15 @@ public class SalesFragment extends Fragment{
         connection.cancel(true);//Stops the thread when code completes
     }
 
+    /**
+     * Queries the web server to get all the feedback from the database
+     *
+     * @param parent the parent layout to which new content should be added
+     * @param cg content generator to generate the content
+     * @throws ExecutionException
+     * @throws InterruptedException
+     * @throws JSONException
+     */
     public void getFeedback(LinearLayout parent, ContentGenerator cg) throws ExecutionException, InterruptedException, JSONException
     {
         Conect connection = new Conect();
