@@ -1,6 +1,9 @@
 package com.example.compulinkapp.classes;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.view.Gravity;
@@ -14,6 +17,7 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.compulinkapp.R;
+import com.example.compulinkapp.activities.LoginActivity;
 
 public class ContentGenerator {
     Context context;
@@ -189,9 +193,24 @@ public class ContentGenerator {
         location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = location.getText().toString();
-                //Make use of dialog message to determine if location should be opened or navigated to
-                helper.openLocation(text);
+                final String text = location.getText().toString();
+
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which)
+                        {
+                            case DialogInterface.BUTTON_POSITIVE:
+                                helper.navigateToLocation(text);
+                                break;
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                helper.openLocation(text);
+                                break;
+                        }
+                    }
+                };
+                AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog_theme);
+                builder.setMessage("Would you like to?").setPositiveButton("Navigate", dialogClickListener).setNegativeButton("View", dialogClickListener).show();
             }
         });
 

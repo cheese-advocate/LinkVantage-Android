@@ -26,4 +26,12 @@ public class GoogleMapsHelper {
         maps.setPackage("com.google.android.apps.maps");//Specify to the device to use google maps
         context.startActivity(maps);//Start google maps intent
     }
+
+    public void navigateToLocation(String address)
+    {
+        Uri uri = Uri.parse("google.navigation:q=" + Uri.encode(address));
+        Intent maps = new Intent(Intent.ACTION_VIEW, uri);
+        maps.setPackage("com.google.android.apps.maps");
+        context.startActivity(maps);
+    }
 }
