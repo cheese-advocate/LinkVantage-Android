@@ -41,29 +41,6 @@ public class JobFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //Button used to test content addition functionality
-        Button testBtn = view.findViewById(R.id.testBtn);
-        final ContentGenerator cg = new ContentGenerator(getContext(), view);
-        final LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.jobs_active);
-
-        testBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cg.createJobCard(linearLayout , "JOB Test");
-            }
-        });
-
-        //Test card view used to test functionality of new code
-        final CardView testV = view.findViewById(R.id.TEST);
-
-        testV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final LinearLayout parent = (LinearLayout) testV.getParent();
-                cg.changeParent(parent, testV);
-            }
-        });
-
         final SwipeRefreshLayout swipe_refresh = view.findViewById(R.id.jobs_fragment_refreshSwipe);
         //Set the look of the refresh icon while or when refreshing
         swipe_refresh.setColorSchemeResources(R.color.colorAccent);
