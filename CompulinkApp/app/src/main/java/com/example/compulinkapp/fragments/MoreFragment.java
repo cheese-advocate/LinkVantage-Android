@@ -1,5 +1,6 @@
 package com.example.compulinkapp.fragments;
 
+import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -17,6 +18,7 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.compulinkapp.activities.ClientDashActivity;
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.GoogleMapsHelper;
@@ -24,7 +26,12 @@ import com.example.compulinkapp.classes.GoogleMapsHelper;
 public class MoreFragment extends Fragment{
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ((DashActivity) getActivity()).setActionBarTitle("More");
+        Activity parent = getActivity();
+        if(parent.equals(DashActivity.class))
+        {
+            ((DashActivity) getActivity()).setActionBarTitle("More");
+        }
+        else ((ClientDashActivity) getActivity()).setActionBarTitle("More");
         return inflater.inflate(R.layout.fragment_more, container, false);
     }
 

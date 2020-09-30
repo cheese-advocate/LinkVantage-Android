@@ -6,11 +6,6 @@
     app:startDestination="@id/nav_dash">
 
     <fragment
-        android:id="@+id/nav_extra"
-        android:name="com.example.compulinkapp.fragments.DashFragment"
-        android:label="DashFragment"
-        tools:layout="@layout/fragment_dash"/>
-    <fragment
         android:id="@+id/nav_dash"
         android:name="com.example.compulinkapp.fragments.HomeDashFragment"
         android:label="HomeFragment"

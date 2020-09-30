@@ -59,7 +59,8 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Animation anim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
                 login.startAnimation(anim);
-                Intent dash = new Intent(v.getContext(), DashActivity.class);
+                Intent dash = new Intent(v.getContext(), DashActivity.class); //Activity to use when technician logs in
+                Intent clientDash = new Intent(v.getContext(), ClientDashActivity.class); //Activity to use when client logs in
                 if(loginValidation())
                 {
 
@@ -78,8 +79,6 @@ public class LoginActivity extends AppCompatActivity {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-
-
                 }
                 else Toast.makeText(getApplicationContext(), "Invalid Login Criteria", Toast.LENGTH_LONG).show();
             }
@@ -135,7 +134,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String loginResponse = (String) LoginConnection.execute(postVar).get();
         Log.d("Testing Response:" ,"Android Recieved response: " + loginResponse );
-
+        LoginConnection.cancel(true); //ends the process after all code has completed
 
         return loginResponse;
     };

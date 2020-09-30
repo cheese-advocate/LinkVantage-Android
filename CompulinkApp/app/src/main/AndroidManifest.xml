@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.compulinkapp">
 
-    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.SET_ALARM" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        <activity android:name=".activities.ClientDashActivity"></activity>
         <activity
             android:name=".activities.NewPasswordActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
@@ -41,7 +42,8 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".classes.Notification"/>
+        <receiver android:name=".classes.Notification" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/client_nav_graph"
+    app:startDestination="@id/nav_client_dash">
+
+    <fragment
+        android:id="@+id/nav_more_client"
+        android:name="com.example.compulinkapp.fragments.MoreFragment"
+        android:label="MoreFragment"
+        tools:layout="@layout/fragment_more"/>
+    <fragment
+        android:id="@+id/nav_client_dash"
+        android:name="com.example.compulinkapp.fragments.ClientDashFragment"
+        android:label="ClientDashFragment"
+        tools:layout="@layout/fragment_client_dash"/>
+</navigation>
