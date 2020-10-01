@@ -25,6 +25,9 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutionException;
 
 public class JobDetailFragment extends Fragment{
+
+    String postVar = null;
+    String id = null;
     /**
      * These are the methods and functions that execute when the view is being created
      * @param inflater
@@ -46,9 +49,11 @@ public class JobDetailFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //Get the text passed to this fragment
-        String text = getArguments().getString("jobID");
-        TextView test = view.findViewById(R.id.testText);
-        //Set the text for testing purposes
-        test.setText(text);
+        id = getArguments().getString("jobID");
+    }
+
+    public void getJobDetails(String jobID)
+    {
+        //TODO
     }
 }
