@@ -8,6 +8,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -67,6 +68,7 @@ public class ClientDashActivity extends AppCompatActivity {
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);
+                finish();//Kills this activity to prevent back click login
                 break;
         }
 

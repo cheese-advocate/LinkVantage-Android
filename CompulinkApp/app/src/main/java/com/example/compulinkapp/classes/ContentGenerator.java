@@ -1,11 +1,15 @@
 package com.example.compulinkapp.classes;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -13,11 +17,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.fragment.app.Fragment;
 
 import com.example.compulinkapp.R;
+import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.activities.LoginActivity;
+import com.example.compulinkapp.fragments.JobDetailFragment;
 
 public class ContentGenerator {
     Context context;
@@ -52,63 +60,134 @@ public class ContentGenerator {
     }
 
     /**
-     * Creates a new card to be added to the linear layout that is acting as container for the cards
-     *
-     * The argument list still needs to be modified so that it accepts all content needed for a job
-     * This is just a working template for testing purposes
+     * Creates a new job card
      *
      * Requires the layout the card needs to be added to and the text to display within the card
-     * @param mainLayout
-     * @param text
+     * @param parent
+     * @param jobID
+     * @param description
+     * @param client
+     * @param priority
      */
-    public void createJobCard(LinearLayout mainLayout, String text)
+    public void createJobCard(LinearLayout parent, String jobID, String description, String client, String priority)
     {
-        //New job card to be added
-        final CardView card = new CardView(context);
-
-        //Set layout parameters for new card
-        CardView.LayoutParams params = new CardView.LayoutParams(
-                CardView.LayoutParams.WRAP_CONTENT,
-                CardView.LayoutParams.MATCH_PARENT
-        );
-        //Design of the new card
-        params.setMarginStart(getPixels(10));
-        params.width = getPixels(150);
-        card.setLayoutParams(params);
-        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
-
-        //Layout parameters for text
-        LinearLayout.LayoutParams paramsText = new LinearLayout.LayoutParams(
+        //Get the required font
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Layout to be placed inside the jobCard
+        final LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
         );
-        //Design the text view
-        TextView tv = new TextView(context);
-        tv.setLayoutParams(paramsText);
-        tv.setText(text);
-        tv.setTextColor(Color.parseColor("#F3F3F3"));
-        tv.setTextSize(getPixels(8));
-        tv.setTextAlignment(TextView.TEXT_ALIGNMENT_GRAVITY);
-        tv.setGravity(Gravity.CENTER);
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set layout params of cardView
+        CardView.LayoutParams cardParams = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the card
+        cardParams.bottomMargin = getPixels(2);
+        cardParams.height = getPixels(40);
+        card.setLayoutParams(cardParams);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+        //Layout params for hidden text
+        LinearLayout.LayoutParams goneText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        //This text view is invisible but still accessible for other functionality
+        final TextView goneID = new TextView(context);
+        goneID.setLayoutParams(goneText);
+        goneID.setVisibility(View.GONE);
+        goneID.setText(jobID);
+
+        //Layout params for text
+        LinearLayout.LayoutParams normalText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        normalText.width = getPixels(145);
+        normalText.gravity = Gravity.CENTER|Gravity.START;
+        normalText.leftMargin = getPixels(2);
+        //Two new text views
+        TextView desc = new TextView(context);
+        TextView clientName = new TextView(context);
+        //Set their layout params
+        desc.setLayoutParams(normalText);
+        clientName.setLayoutParams(normalText);
+        //Design the text views
+        clientName.setText(client);
+        clientName.setTextColor(Color.parseColor("#F3F3F3"));
+        clientName.setTextSize(getPixels(7));
+        clientName.setTypeface(font);
+
+        desc.setText(description);
+        desc.setTextColor(Color.parseColor("#F3F3F3"));
+        desc.setTextSize(getPixels(7));
+        desc.setTypeface(font);
+
+        LinearLayout.LayoutParams endText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        endText.gravity = Gravity.CENTER|Gravity.START;
+        endText.width = getPixels(90);
+        //New text view
+        TextView priorityText = new TextView(context);
+        //Set layout params
+        priorityText.setLayoutParams(endText);
+        //Design
+        priorityText.setText(priority);
+        if(priority.equals("Urgent"))
+        {
+            priorityText.setTextColor(Color.parseColor("#FF0000"));
+        }
+        else if(priority.equals("High"))
+        {
+            priorityText.setTextColor(Color.parseColor("#FFA500"));
+        }
+        else if(priority.equals("Low"))
+        {
+            priorityText.setTextColor(Color.parseColor("#03AAFB"));
+        }
+        else
+        {
+            priorityText.setTextColor(Color.parseColor("#F3F3F3"));
+        }
+        priorityText.setTextSize(getPixels(7));
+        priorityText.setTypeface(font);
+        //Add text views to layout
+        layout.addView(goneID);
+        layout.addView(desc);
+        layout.addView(clientName);
+        layout.addView(priorityText);
+        //Add layout to the card
+        card.addView(layout);
+        //Add the card to its parent layout
+        parent.addView(card);
 
         /**
-         * Add onClickListener to the newly created card
-         * This ensures that newly added cards will also
-         * be able to move between the different job categories
+         * On click of the job a new fragment will open and the jobID gets passed to it
+         * The job id will then be used to retrieve all relevant job info
          */
         card.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final LinearLayout parent = (LinearLayout) card.getParent();
-                ContentGenerator cg = new ContentGenerator(context, view);
-                cg.changeParent(parent, card);
+                //On click of job this code executes
+                String passingID = goneID.getText().toString().trim();
+                //Sets the bundle to be passed to new fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("jobID", passingID);
+
+                AppCompatActivity act = (AppCompatActivity) context;
+                JobDetailFragment fr = new JobDetailFragment();
+                fr.setArguments(bundle);
+                act.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fr).addToBackStack("Jobs").commit();
             }
         });
-
-        //Add text view to card
-        card.addView(tv);
-        //Add new card to layout
-        mainLayout.addView(card);
     }
 
     /**
@@ -210,7 +289,7 @@ public class ContentGenerator {
                     }
                 };
                 AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.dialog_theme);
-                builder.setMessage("Would you like to?").setPositiveButton("Navigate", dialogClickListener).setNegativeButton("View", dialogClickListener).show();
+                builder.setMessage("What would you like to do?").setPositiveButton("Navigate", dialogClickListener).setNegativeButton("View", dialogClickListener).show();
             }
         });
 
@@ -458,51 +537,5 @@ public class ContentGenerator {
 
         card.addView(layout_outer);
         parent.addView(card);
-    }
-
-    /**
-     * Changes the specified card view's parent. If the card needs to be displayed in
-     * different location after user performs specific action
-     *
-     * When card is in finished jobs - gets removed on click
-     * When card is in pending jobs - gets moved to active jobs on click
-     * When card is in active jobs - gets moved to finished jobs on click
-     *
-     * Requires the current of the view parent and the view to be moved
-     * @param parent - in linear layout format
-     * @param vw - in Card View format
-     */
-    public void changeParent(LinearLayout parent, CardView vw)
-    {
-        //Layout params need to be reset
-        CardView.LayoutParams params = new CardView.LayoutParams(
-                CardView.LayoutParams.WRAP_CONTENT,
-                CardView.LayoutParams.MATCH_PARENT
-        );
-        params.setMarginStart(getPixels(10));
-        params.width = getPixels(150);
-        //Set the layout params
-        vw.setLayoutParams(params);
-        //checks if the parent given is null
-        if(parent != null)
-        {
-            //decides where to move the clicked view based on the view's parent
-            if(parent.getId() == R.id.jobs_active)
-            {
-                parent.removeView(vw);
-                LinearLayout newParent = (LinearLayout) view.findViewById(R.id.jobs_finished);
-                newParent.addView(vw);
-            }
-            else if(parent.getId() == R.id.jobs_pending)
-            {
-                parent.removeView(vw);
-                LinearLayout newParent = (LinearLayout) view.findViewById(R.id.jobs_active);
-                newParent.addView(vw);
-            }
-            else if(parent.getId() == R.id.jobs_finished)
-            {
-                parent.removeView(vw);
-            }
-        }
     }
 }

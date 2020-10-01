@@ -3,6 +3,7 @@ package com.example.compulinkapp.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -83,6 +84,7 @@ public class DashActivity extends AppCompatActivity {
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(logout);
+                finish();//Kills this activity to prevent back click login
                 break;
         }
 

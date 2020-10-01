@@ -31,7 +31,10 @@ public class MoreFragment extends Fragment{
         {
             ((DashActivity) getActivity()).setActionBarTitle("More");
         }
-        else ((ClientDashActivity) getActivity()).setActionBarTitle("More");
+        else if(parent.equals(ClientDashActivity.class))
+        {
+            ((ClientDashActivity) getActivity()).setActionBarTitle("More");
+        }
         return inflater.inflate(R.layout.fragment_more, container, false);
     }
 
