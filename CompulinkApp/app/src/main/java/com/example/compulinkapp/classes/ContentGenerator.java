@@ -741,4 +741,115 @@ public class ContentGenerator {
 
         parent.addView(card);
     }
+
+    public void createMilestoneCard(LinearLayout parent, String milestone, final String milestoneID, String milestoneDate)
+    {
+        //Get the font
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+        //Get the layout to be placed in the card
+        final LinearLayout layout = new LinearLayout(context);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set layout params of cardView
+        CardView.LayoutParams cardParams = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the card
+        cardParams.height = getPixels(40);
+        card.setLayoutParams(cardParams);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+
+        LinearLayout.LayoutParams goneText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        //This text view is invisible but still accessible for other functionality
+        final TextView goneID = new TextView(context);
+        goneID.setLayoutParams(goneText);
+        goneID.setVisibility(View.GONE);
+        goneID.setText(milestoneID);//Used to get id for task. This is needed to update or delete task in db
+
+        //Text parameters
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        textParams.gravity = Gravity.CENTER;
+
+        CheckBox cbx = new CheckBox(context);
+        TextView milestoneText = new TextView(context);
+
+        cbx.setLayoutParams(textParams);
+        milestoneText.setLayoutParams(textParams);
+
+        if(!milestoneDate.equalsIgnoreCase("null"))
+        {
+            cbx.setChecked(true);
+        }
+        //Set colour of checkbox
+        CompoundButtonCompat.setButtonTintList(cbx, ColorStateList.valueOf(context.getResources().getColor(R.color.colorAccent)));
+
+        milestoneText.setText(milestone);
+        milestoneText.setTextColor(Color.parseColor("#F3F3F3"));
+        milestoneText.setTextSize(getPixels(7));
+        milestoneText.setTypeface(font);
+
+        cbx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //change db on check change
+                String date;
+                Conect connection = new Conect();
+                if(isChecked)
+                {
+                    date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+                }
+                else
+                {
+                    date = "NULL";
+                }
+
+                postVar = "CHANGE_MILESTONE_STATE";
+                JSONObject data = new JSONObject();
+
+                try
+                {
+                    data.put("milestoneID", milestoneID);
+                    data.put("milestoneDate", date);
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
+                postVar = postVar + "-" + "data" + "=" + data.toString();
+
+                try
+                {
+                    connection.execute(postVar).get();
+                }
+                catch (ExecutionException | InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                connection.cancel(true);
+            }
+        });
+
+        layout.addView(goneID);
+        layout.addView(cbx);
+        layout.addView(milestoneText);
+
+        card.addView(layout);
+
+        parent.addView(card);
+    }
 }

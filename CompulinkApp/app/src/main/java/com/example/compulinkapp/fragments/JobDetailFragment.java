@@ -223,6 +223,15 @@ public class JobDetailFragment extends Fragment{
                 task.setText("");//Clears the input after addition of new task
             }
         });
+
+        try
+        {
+            getMilestones(id, cg);
+        }
+        catch (JSONException | ExecutionException | InterruptedException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public JSONObject getJobDetails(String jobID) throws ExecutionException, InterruptedException, JSONException {
@@ -278,6 +287,35 @@ public class JobDetailFragment extends Fragment{
             cg.createTaskCard(parent, task, id, taskEnd);
         }
 
+        connection.cancel(true);
+    }
+
+    public void getMilestones(String jobID, ContentGenerator cg) throws JSONException, ExecutionException, InterruptedException {
+        Conect connection = new Conect();
+        postVar = "GET_MILESTONES";
+
+        JSONObject data = new JSONObject();
+
+        data.put("jobID", jobID);
+
+        postVar = postVar + "-" + data.toString();
+
+        String response = connection.execute(postVar).get().toString();
+        String milestoneID, milestone, milestoneDate;
+
+        JSONArray array = new JSONArray(response);
+        JSONObject obj;
+        LinearLayout parent = getView().findViewById(R.id.milestone_container);
+        for (int i = 0; i < array.length(); i++)
+        {
+            obj = array.getJSONObject(i);
+
+            milestoneID = obj.getString("mcID");
+            milestone = obj.getString("mcName");
+            milestoneDate = obj.getString("mcDate");
+
+            cg.createMilestoneCard(parent, milestone, milestoneID, milestoneDate);
+        }
         connection.cancel(true);
     }
 }
