@@ -559,7 +559,7 @@ public class ContentGenerator {
      * @param task
      * @param id
      */
-    public void createTaskCard(LinearLayout parent, String task, String id)
+    public void createTaskCard(LinearLayout parent, String task, String id, String taskEnd)
     {
         //Gets the font needed
         Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
@@ -677,10 +677,24 @@ public class ContentGenerator {
             }
         });
 
+        if(taskEnd != null)
+        {
+            //If the task has an end date it should be set as checked
+            cbx.setChecked(true);
+        }
+
         cbx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 //TODO
+                if(isChecked)
+                {
+                    //Set end date in DB
+                }
+                else
+                {
+                    //remove end date in DB
+                }
             }
         });
 

@@ -255,7 +255,7 @@ public class JobDetailFragment extends Fragment{
         postVar = postVar + "-" + data.toString();
 
         String response = (String) connection.execute(postVar).get();
-        String id, task;
+        String id, task, taskEnd;
 
         JSONArray array = new JSONArray(response);
         JSONObject obj;
@@ -266,8 +266,9 @@ public class JobDetailFragment extends Fragment{
 
             id = obj.getString("taskID");
             task = obj.getString("taskDescription");
+            taskEnd = obj.getString("taskEnd");
 
-            cg.createTaskCard(parent, task, id);
+            cg.createTaskCard(parent, task, id, taskEnd);
         }
 
         connection.cancel(true);
