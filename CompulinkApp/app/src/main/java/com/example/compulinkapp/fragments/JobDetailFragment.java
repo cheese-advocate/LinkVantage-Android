@@ -104,6 +104,12 @@ public class JobDetailFragment extends Fragment{
             }
 
             location.setTextColor(Color.parseColor("#03AAFB"));
+
+            if(obj.getString("jobDescription").equalsIgnoreCase("null"))
+            {
+                description.setText("No Description");
+            }
+            else description.setText(obj.getString("jobDescription"));
             //Set the actual text in the text views
             priority.setText(obj.getString("priority"));
             deadline.setText(obj.getString("deadline"));
@@ -111,7 +117,7 @@ public class JobDetailFragment extends Fragment{
             category.setText(obj.getString("typeName"));
             client.setText(obj.getString("clientName"));
             location.setText(obj.getString("location"));
-            description.setText(obj.getString("jobDescription"));
+
 
             //On click of the location the option to navigate or view will again be there
             location.setOnClickListener(new View.OnClickListener() {
@@ -214,6 +220,7 @@ public class JobDetailFragment extends Fragment{
                 {
                     e.printStackTrace();
                 }
+                task.setText("");//Clears the input after addition of new task
             }
         });
     }

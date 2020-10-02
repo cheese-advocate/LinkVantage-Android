@@ -728,6 +728,7 @@ public class ContentGenerator {
                 {
                     e.printStackTrace();
                 }
+                connection.cancel(true);
             }
         });
 
