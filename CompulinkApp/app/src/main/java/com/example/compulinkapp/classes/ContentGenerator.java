@@ -7,19 +7,25 @@ import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
+import androidx.core.widget.CompoundButtonCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.compulinkapp.R;
@@ -536,6 +542,110 @@ public class ContentGenerator {
         layout_outer.addView(layout_inner);
 
         card.addView(layout_outer);
+        parent.addView(card);
+    }
+
+    /**
+     * Creates the tasks present in the database
+     *
+     * @param parent
+     * @param task
+     * @param id
+     */
+    public void createTaskCard(LinearLayout parent, String task, String id)
+    {
+        //Gets the font needed
+        Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
+
+        //Layout to be placed inside the jobCard
+        final LinearLayout layout = new LinearLayout(context);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        layout.setLayoutParams(layoutParams);
+
+        final CardView card = new CardView(context);
+        //Set layout params of cardView
+        CardView.LayoutParams cardParams = new CardView.LayoutParams(
+                CardView.LayoutParams.MATCH_PARENT,
+                CardView.LayoutParams.WRAP_CONTENT
+        );
+        //Design of the card
+        cardParams.height = getPixels(40);
+        card.setLayoutParams(cardParams);
+        card.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+        card.setCardBackgroundColor(Color.parseColor("#CC373741"));
+        //Layout params for hidden text
+        LinearLayout.LayoutParams goneText = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        //This text view is invisible but still accessible for other functionality
+        final TextView goneID = new TextView(context);
+        goneID.setLayoutParams(goneText);
+        goneID.setVisibility(View.GONE);
+        goneID.setText(id);//Used to get id for task. This is needed to update or delete task in db
+
+        //Layout params for text
+        LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+        );
+        textParams.width = getPixels(270);
+        textParams.gravity = Gravity.CENTER|Gravity.START;
+        textParams.leftMargin = getPixels(5);
+
+        TextView taskTV = new TextView(context);
+        taskTV.setLayoutParams(textParams);
+        taskTV.setText(task);
+        taskTV.setTextColor(Color.parseColor("#F3F3F3"));
+        taskTV.setTextSize(getPixels(7));
+        taskTV.setTypeface(font);
+
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        params.gravity = Gravity.CENTER|Gravity.START;
+
+        CheckBox cbx = new CheckBox(context);
+        cbx.setLayoutParams(params);
+        CompoundButtonCompat.setButtonTintList(cbx, ColorStateList.valueOf(context.getResources().getColor(R.color.colorAccent)));
+
+        LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT
+        );
+        imageParams.width = getPixels(20);
+        imageParams.height = getPixels(20);
+        imageParams.gravity = Gravity.CENTER|Gravity.START;
+
+        ImageView delete = new ImageView(context);
+        delete.setLayoutParams(imageParams);
+        delete.setImageResource(R.drawable.ic_trash);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO
+            }
+        });
+
+        cbx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //TODO
+            }
+        });
+
+        layout.addView(goneID);
+        layout.addView(cbx);
+        layout.addView(taskTV);
+        layout.addView(delete);
+
+        card.addView(layout);
+
         parent.addView(card);
     }
 }

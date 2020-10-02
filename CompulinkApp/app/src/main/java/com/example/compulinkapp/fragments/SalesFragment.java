@@ -37,13 +37,6 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.concurrent.ExecutionException;
 
-/**
- * TODO
- * Retrieve necessary data from SQL for the sales lead management screen
- * Format the data and display it in the necessary locations
- * Enable technicians to add new sales leads to the database from sales lead management screen
- */
-
 public class SalesFragment extends Fragment{
     //Post variable to be used in server communication
     String postVar = null;
