@@ -37,6 +37,9 @@ import com.example.compulinkapp.fragments.JobDetailFragment;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class ContentGenerator {
@@ -559,7 +562,7 @@ public class ContentGenerator {
      * @param task
      * @param id
      */
-    public void createTaskCard(LinearLayout parent, String task, String id, String taskEnd)
+    public void createTaskCard(LinearLayout parent, String task, final String id, String taskEnd)
     {
         //Gets the font needed
         Typeface font = ResourcesCompat.getFont(context, R.font.montserrat);
@@ -677,7 +680,7 @@ public class ContentGenerator {
             }
         });
 
-        if(taskEnd != null)
+        if(!taskEnd.equalsIgnoreCase("null"))
         {
             //If the task has an end date it should be set as checked
             cbx.setChecked(true);
@@ -687,13 +690,43 @@ public class ContentGenerator {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 //TODO
+                String date;
+                Conect connection = new Conect();
                 if(isChecked)
                 {
-                    //Set end date in DB
+                    date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
                 }
                 else
                 {
-                    //remove end date in DB
+                    date = "NULL";
+                }
+
+                //Set end date in DB
+                postVar = "CHANGE_TASK_STATE";
+                JSONObject data = new JSONObject();
+
+                try
+                {
+                    data.put("taskID", id);
+                    data.put("endDate", date);
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
+                postVar = postVar + "-" + "data" + "=" + data.toString();
+                try
+                {
+                    connection.execute(postVar).get().toString().trim();
+                }
+                catch (ExecutionException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
                 }
             }
         });
