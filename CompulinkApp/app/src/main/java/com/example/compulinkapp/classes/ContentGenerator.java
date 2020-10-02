@@ -3,7 +3,6 @@ package com.example.compulinkapp.classes;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,22 +20,30 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.widget.CompoundButtonCompat;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.activities.LoginActivity;
 import com.example.compulinkapp.fragments.JobDetailFragment;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.concurrent.ExecutionException;
+
 public class ContentGenerator {
     Context context;
     View view;
     GoogleMapsHelper helper;
+    String postVar = null;
     /**
      * Constructor to set the context and view for the class
      * @param ctx
@@ -629,6 +636,44 @@ public class ContentGenerator {
             @Override
             public void onClick(View v) {
                 //TODO
+                Conect connection = new Conect();
+                postVar = "DELETE_TASK";
+
+                JSONObject data = new JSONObject();
+                try
+                {
+                    data.put("id", goneID.getText().toString());//id of task to be deleted
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+                postVar = postVar + "-" + data.toString();
+
+                try
+                {
+                    String response = connection.execute(postVar).get().toString().trim();
+                    if(response.equalsIgnoreCase("True"))
+                    {
+                        //Refreshes the fragment when a task is removed
+                        AppCompatActivity act = (AppCompatActivity) context;
+                        Fragment fr = act.getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+                        FragmentTransaction ft = fr.getFragmentManager().beginTransaction();
+                        ft.detach(fr).attach(fr).commit();
+
+                        Toast.makeText(context, "Task Removed", Toast.LENGTH_SHORT).show();
+                    }
+                    else Toast.makeText(context, "An Error Occurred", Toast.LENGTH_SHORT).show();
+                }
+                catch (ExecutionException e)
+                {
+                    e.printStackTrace();
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+                connection.cancel(true);
             }
         });
 
