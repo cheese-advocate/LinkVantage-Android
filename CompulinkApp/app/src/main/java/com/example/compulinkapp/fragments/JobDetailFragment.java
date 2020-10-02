@@ -8,8 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,6 +29,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 
 public class JobDetailFragment extends Fragment{
@@ -51,7 +56,7 @@ public class JobDetailFragment extends Fragment{
      * @param savedInstanceState
      */
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull final View view, @Nullable final Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final ContentGenerator cg = new ContentGenerator(getContext(), view);
         final GoogleMapsHelper helper = new GoogleMapsHelper(getContext());
@@ -141,11 +146,74 @@ public class JobDetailFragment extends Fragment{
             e.printStackTrace();
         }
 
+        final SwipeRefreshLayout swipeRefreshLayout = view.findViewById(R.id.jobsDetails_fragment_refreshSwipe);
+        //Look and feel of loading icon on refresh
+        swipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
+        swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.colorPrimary);
+        /**
+         * When the user swipes down the screen will be refreshed and the method below will be called
+         * The code below will be used to see if any changes are detected in the database and
+         * the screen will be updated accordingly
+         */
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                /**
+                 * On refresh of the screen the following code will execute and query the database
+                 * again. The screen will thus update if changes occur.
+                 * The fragment gets detached and attached again, thus all the fragment code
+                 * executes again and in doing so UI gets updated
+                 */
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.detach(JobDetailFragment.this).attach(JobDetailFragment.this).commit();
+                swipeRefreshLayout.setRefreshing(false); //sets refreshing to stop if this method has completed all the code
+            }
+        });
+
         Button add = view.findViewById(R.id.addTaskBtn);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                EditText task = view.findViewById(R.id.task_text);
+                String text = task.getText().toString().trim();
+                Conect connection = new Conect();
+                postVar = "ADD_NEW_TASK";
+                JSONObject data = new JSONObject();
 
+                String date = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
+
+                try
+                {
+                    data.put("date", date);
+                    data.put("task", text);
+                    data.put("jobID", id);
+                }
+                catch (JSONException e)
+                {
+                    e.printStackTrace();
+                }
+
+                postVar = postVar + "-" + "data"+ "=" + data.toString();
+
+                try
+                {
+                    String response = connection.execute(postVar).get().toString().trim();
+
+                    if(response.equalsIgnoreCase("True"))
+                    {
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.detach(JobDetailFragment.this).attach(JobDetailFragment.this).commit();
+                        Toast.makeText(getContext(), "Task Added", Toast.LENGTH_SHORT).show();
+                    }
+                    else Toast.makeText(getContext(), "An error occurred", Toast.LENGTH_SHORT).show();
+
+                    connection.cancel(true);
+                }
+                catch (ExecutionException | InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -194,7 +262,7 @@ public class JobDetailFragment extends Fragment{
         LinearLayout parent = getView().findViewById(R.id.task_container);
         for(int i = 0; i < array.length(); i++)
         {
-            obj = array.getJSONObject(0);
+            obj = array.getJSONObject(i);
 
             id = obj.getString("taskID");
             task = obj.getString("taskDescription");
@@ -203,10 +271,5 @@ public class JobDetailFragment extends Fragment{
         }
 
         connection.cancel(true);
-    }
-
-    public void addTaskToDB()
-    {
-        //TODO
     }
 }
