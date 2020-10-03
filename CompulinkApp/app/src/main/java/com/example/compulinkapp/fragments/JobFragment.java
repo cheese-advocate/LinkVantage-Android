@@ -285,35 +285,54 @@ public class JobFragment extends Fragment{
         return list;
     }
 
+    /**
+     * Converts the hash map array list to an array list
+     *
+     * @param hashMapArrayList the list to be changed
+     * @return returns an Array list
+     */
     public ArrayList<String> toList(ArrayList<HashMap<String, String>> hashMapArrayList)
     {
+        //List to be populated
         ArrayList<String> list = new ArrayList<>();
         for (int i = 0; i < hashMapArrayList.size(); i++)//Iterates through the array list and accesses each hash map
         {
+            //Gets the hash map at the current index
             HashMap<String, String> map = hashMapArrayList.get(i);
-
+            //Loops through the map and adds all the values to the list
             for (Map.Entry<String, String> entry : map.entrySet())//Iterates through the map to get the value
             {
                 list.add(i, entry.getValue());
             }
         }
+        //Returns the list
         return list;
     }
 
+    /**
+     * Returns the key of the value given
+     *
+     * @param hashMapArrayList the list containing the key to be searched for
+     * @param value the value who's key needs to be searched for
+     * @return returns the string key
+     */
     public String getKeyFromValue(ArrayList<HashMap<String, String>> hashMapArrayList, String value)
     {
         for (int i = 0; i < hashMapArrayList.size(); i++)
         {
+            //Gets the hash map at the current index
             HashMap<String, String> map = hashMapArrayList.get(i);
-
+            //Searches through the current pointed at hash map
             for (String o : map.keySet())
             {
-                if (map.get(o).equals(value))
+                if (map.get(o).equals(value))//Checks if the object equals the specified value
                 {
+                    //Returns the object/key if found
                     return o;
                 }
             }
         }
+        //Returns null if not found
         return null;
     }
 }

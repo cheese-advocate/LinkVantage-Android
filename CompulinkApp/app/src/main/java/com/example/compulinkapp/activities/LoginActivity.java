@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.classes.Conect;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.concurrent.ExecutionException;
 
 public class LoginActivity extends AppCompatActivity {
@@ -135,6 +138,21 @@ public class LoginActivity extends AppCompatActivity {
         String loginResponse = (String) LoginConnection.execute(postVar).get();
         Log.d("Testing Response:" ,"Android Recieved response: " + loginResponse );
         LoginConnection.cancel(true); //ends the process after all code has completed
+
+        /*TODO Edrich auto login code
+        String postVar = "NEW_HANDLE_LOGIN";
+        JSONObject data = new JSONObject();
+        try
+        {
+            data.put("username", usernameInp.getText().toString().trim());
+            data.put("password", passwordInp.getText().toString().trim());
+        }
+        catch (JSONException e)
+        {
+            e.printStackTrace();
+        }
+        postVar = postVar + "-" + data.toString();
+        Conect connection = new Conect();*/
 
         return loginResponse;
     };

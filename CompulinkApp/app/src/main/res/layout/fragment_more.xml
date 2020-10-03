@@ -96,7 +96,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/reports_card"
+            android:id="@+id/about_card"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="16dp"
@@ -108,14 +108,14 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_report_blue"
+                android:src="@drawable/ic_about"
                 android:layout_gravity="center|top"
                 android:layout_marginTop="30dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Reports"
+                android:text="About"
                 android:textColor="@color/textColor"
                 android:fontFamily="@font/montserrat"
                 android:textSize="12dp"
@@ -161,7 +161,7 @@
             app:cardBackgroundColor="@color/seeThrough"
             app:layout_constraintEnd_toStartOf="@+id/guideline4"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reports_card">
+            app:layout_constraintTop_toBottomOf="@+id/about_card">
 
             <ImageView
                 android:layout_width="wrap_content"
