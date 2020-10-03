@@ -51,4 +51,17 @@
     <string name="regInfoPrivClient">Only one contact can be created during registration additional ones can be added after registration</string>
     <string name="otpInfo">To reset your password an OTP will be sent to you either via email or to your account on the website</string>
     <string name="otpMessage">Generated OTP to be used for password recovery</string>
+    <string-array name="priority_options">
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <item>Urgent</item>
+    </string-array>
+    <string-array name="jobStatus_options">
+        <item>In Progress</item>
+        <item>Preparing</item>
+        <item>Waiting on client</item>
+        <item>Not started</item>
+        <item>Finished</item>
+    </string-array>
 </resources>
