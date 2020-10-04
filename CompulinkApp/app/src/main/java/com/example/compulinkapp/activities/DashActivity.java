@@ -9,11 +9,13 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.compulinkapp.R;
 import com.example.compulinkapp.fragments.FacebookFeedFragment;
@@ -38,6 +40,8 @@ public class DashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dash);
 
+        SharedPreferences pref = getSharedPreferences("user_details", MODE_PRIVATE);
+        Toast.makeText(this, "Welcome " + pref.getString("username", null), Toast.LENGTH_SHORT).show();
         /**
          * Nav controller setup to control the navigation of the dashboard bottom navigation
          */
@@ -83,6 +87,8 @@ public class DashActivity extends AppCompatActivity {
                 break;
             case R.id.logout_opt:
                 Intent logout = new Intent(getApplicationContext(), LoginActivity.class);
+                SharedPreferences pref = getSharedPreferences("user_details", MODE_PRIVATE);
+                pref.edit().clear().apply();//Clear the shared preferences
                 startActivity(logout);
                 finish();//Kills this activity to prevent back click login
                 break;
