@@ -1,7 +1,9 @@
 package com.example.compulinkapp.fragments;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -43,6 +45,7 @@ import java.util.concurrent.ExecutionException;
 public class JobFragment extends Fragment{
 
     String postVar = null;
+    SharedPreferences pref;
     /**
      * These are the methods and functions that execute when the view is being created
      * @param inflater
@@ -52,6 +55,7 @@ public class JobFragment extends Fragment{
      */
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ((DashActivity) getActivity()).setActionBarTitle("Jobs");
+        pref = this.getActivity().getSharedPreferences("user_details", Context.MODE_PRIVATE);
         return inflater.inflate(R.layout.fragment_jobs, container, false);
     }
     /**
@@ -63,12 +67,14 @@ public class JobFragment extends Fragment{
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         final  ContentGenerator cg = new ContentGenerator(getContext(), view);
         final LinearLayout parent = view.findViewById(R.id.job_container);
-
+        final LinearLayout technicianJobsParent = view.findViewById(R.id.technician_job_container);
         try
         {
             getJobs(parent, cg);
+            getJobs(technicianJobsParent, cg, pref.getString("username", null));
         }
         catch (ExecutionException | InterruptedException | JSONException e)
         {
@@ -224,6 +230,42 @@ public class JobFragment extends Fragment{
     {
         Conect connection = new Conect();
         postVar = "GET_JOBS";
+        String response = (String) connection.execute(postVar).get();
+        JSONArray data = new JSONArray(response);
+        JSONObject obj;
+
+        String id, desc, clientName, priority;
+
+        for (int i = 0; i < data.length(); i++)
+        {
+            obj = data.getJSONObject(i);
+
+            id = obj.getString("jobID");
+            if(obj.isNull("jobDescription"))
+            {
+                desc = "No Description";
+            }
+            else desc = obj.getString("jobDescription");
+
+            clientName = obj.getString("fullName");
+            priority = obj.getString("priority");
+
+            cg.createJobCard(parent, id, desc, clientName, priority);
+        }
+
+        connection.cancel(true);
+    }
+
+    public void getJobs(LinearLayout parent, ContentGenerator cg, String username) throws ExecutionException, InterruptedException, JSONException
+    {
+        Conect connection = new Conect();
+        postVar = "GET_TECHNICIAN_JOBS";
+
+        JSONObject val = new JSONObject();
+        val.put("username", username);
+
+        postVar = postVar + "-" + val.toString();
+
         String response = (String) connection.execute(postVar).get();
         JSONArray data = new JSONArray(response);
         JSONObject obj;

@@ -638,7 +638,6 @@ public class ContentGenerator {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO
                 Conect connection = new Conect();
                 postVar = "DELETE_TASK";
 
@@ -689,7 +688,6 @@ public class ContentGenerator {
         cbx.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                //TODO
                 String date;
                 Conect connection = new Conect();
                 if(isChecked)
