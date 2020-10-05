@@ -84,7 +84,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/montserrat"
-            android:text="Social Media Feeds"
+            android:text="Facebook Feed"
             android:textColor="@color/textColor"
             android:textSize="15dp"
             app:layout_constraintStart_toStartOf="parent"

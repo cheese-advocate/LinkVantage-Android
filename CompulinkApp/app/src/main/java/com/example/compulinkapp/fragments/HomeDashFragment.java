@@ -22,6 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.compulinkapp.activities.DashActivity;
 import com.example.compulinkapp.R;
@@ -35,6 +36,7 @@ public class HomeDashFragment extends Fragment{
 
     private ArrayList<String> items;
     private ArrayAdapter<String> adapter;
+
 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ((DashActivity) getActivity()).setActionBarTitle("Home");
