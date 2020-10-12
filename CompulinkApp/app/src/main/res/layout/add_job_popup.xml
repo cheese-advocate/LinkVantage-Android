@@ -33,139 +33,272 @@
             android:layout_marginEnd="8dp"
             android:src="@drawable/ic_close"/>
 
-        <EditText
-            android:id="@+id/txt_deadline"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+        <LinearLayout
+            android:id="@+id/deadlineLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/popup_title"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:inputType="text"
-            android:hint="Deadline"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/textColor"
-            android:textSize="15dp"/>
-
-        <EditText
-            android:id="@+id/txt_jobDesc"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_deadline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Deadline:"
+                android:layout_weight="0.25"/>
+
+            <EditText
+                android:id="@+id/txt_deadline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:inputType="text"
+                android:hint="Deadline"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="15dp"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/descLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_deadline"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/colorPrimaryDark"
-            android:inputType="text"
-            android:hint="Description"
-            android:textColorHint="@color/colorPrimaryDark"
-            android:fontFamily="@font/montserrat"
-            android:textColor="@color/textColor"
-            android:textSize="15dp"/>
-
-        <Spinner
-            android:id="@+id/spin_priority"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/deadlineLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_desc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Description:"
+                android:layout_weight="0.25"/>
+
+            <EditText
+                android:id="@+id/txt_jobDesc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:inputType="text"
+                android:hint="Description"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="15dp"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/priorityLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/txt_jobDesc"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:entries="@array/priority_options"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-        <Spinner
-            android:id="@+id/spin_jobStatus"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/descLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_priority"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Priority:"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_priority"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/priority_options"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="textStart"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/statusLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_priority"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:entries="@array/jobStatus_options"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-        <Spinner
-            android:id="@+id/spin_jobType"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/priorityLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Status:"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_jobStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:entries="@array/jobStatus_options"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="textStart"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/typeLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_jobStatus"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-        <Spinner
-            android:id="@+id/spin_technician"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/statusLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Job Type:"
+                android:layout_gravity="center"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_jobType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="textStart"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/technicianLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_jobType"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-        <Spinner
-            android:id="@+id/spin_client"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/typeLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_technician"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Technician:"
+                android:layout_gravity="center"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_technician"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="textStart"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/clientLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_technician"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
-
-        <Spinner
-            android:id="@+id/spin_site"
-            android:layout_width="0dp"
+            app:layout_constraintTop_toBottomOf="@id/technicianLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_client"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Client:"
+                android:layout_gravity="center"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_client"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="gravity"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/siteLayout"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_client"
-            android:layout_marginTop="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:spinnerMode="dropdown"
-            android:textAlignment="textStart"
-            android:popupBackground="@color/colorPrimary"
-            android:backgroundTint="@color/colorPrimaryDark"/>
+            app:layout_constraintTop_toBottomOf="@id/clientLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_site"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat"
+                android:textColor="@color/textColor"
+                android:textSize="12dp"
+                android:text="Location:"
+                android:layout_gravity="center"
+                android:layout_weight="0.25"/>
+
+            <Spinner
+                android:id="@+id/spin_site"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:spinnerMode="dropdown"
+                android:textAlignment="gravity"
+                android:popupBackground="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:layout_weight="0.75"/>
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/btn_createJob"
@@ -173,12 +306,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spin_site"
+            app:layout_constraintTop_toBottomOf="@id/siteLayout"
             android:background="@drawable/rounded_button"
             android:text="Add Job"
             android:textColor="@color/textColor"
             android:fontFamily="@font/montserrat"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

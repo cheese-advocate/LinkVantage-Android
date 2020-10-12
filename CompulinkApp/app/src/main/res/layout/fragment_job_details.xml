@@ -18,232 +18,225 @@
                 android:id="@+id/title_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="15dp"
+                android:text="Details"
                 android:textColor="@color/textColor"
-                android:text="Details"/>
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <View
                 android:id="@+id/details_container"
                 android:layout_width="0dp"
                 android:layout_height="175dp"
-                app:layout_constraintTop_toBottomOf="@id/title_details"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:background="@color/seeThrough"/>
+                android:background="@color/seeThrough"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_details" />
 
             <TextView
                 android:id="@+id/priorityTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/details_container"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Priority:"
                 android:textColor="@color/colorAccent"
-                android:text="Priority:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toTopOf="@id/details_container" />
 
             <TextView
                 android:id="@+id/priorityText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/details_container"
-                app:layout_constraintStart_toEndOf="@id/priorityTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toTopOf="@id/details_container" />
 
             <TextView
                 android:id="@+id/dueDateTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/priorityTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Due Date:"
                 android:textColor="@color/colorAccent"
-                android:text="Due Date:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/priorityTV" />
 
             <TextView
                 android:id="@+id/dueDateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/priorityText"
-                app:layout_constraintStart_toEndOf="@id/dueDateTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/priorityText" />
 
             <TextView
                 android:id="@+id/statusTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/dueDateTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Status:"
                 android:textColor="@color/colorAccent"
-                android:text="Status:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/dueDateTV" />
 
             <TextView
                 android:id="@+id/statusText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/dueDateText"
-                app:layout_constraintStart_toEndOf="@id/statusTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/dueDateText" />
 
             <TextView
                 android:id="@+id/categoryTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/statusTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Category:"
                 android:textColor="@color/colorAccent"
-                android:text="Category:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/statusTV" />
 
             <TextView
                 android:id="@+id/categoryText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/statusText"
-                app:layout_constraintStart_toEndOf="@id/categoryTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/statusText" />
 
             <TextView
                 android:id="@+id/clientTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/categoryTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Client:"
                 android:textColor="@color/colorAccent"
-                android:text="Client:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/categoryTV" />
 
             <TextView
                 android:id="@+id/clientText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/categoryText"
-                app:layout_constraintStart_toEndOf="@id/clientTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/categoryText" />
 
             <TextView
                 android:id="@+id/locationTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/clientTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Location:"
                 android:textColor="@color/colorAccent"
-                android:text="Location:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/clientTV" />
 
             <TextView
                 android:id="@+id/locationText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/clientText"
-                app:layout_constraintStart_toEndOf="@id/locationTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/clientText" />
 
             <TextView
                 android:id="@+id/descTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/locationTV"
-                app:layout_constraintStart_toStartOf="@id/details_container"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="Description:"
                 android:textColor="@color/colorAccent"
-                android:text="Description:"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@id/details_container"
+                app:layout_constraintTop_toBottomOf="@id/locationTV" />
 
             <TextView
                 android:id="@+id/descText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/locationText"
-                app:layout_constraintStart_toEndOf="@id/descTV"
                 android:layout_marginTop="8dp"
-                android:layout_marginStart="16dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="10dp"
+                android:text="TEST TEST"
                 android:textColor="@color/textColor"
-                android:text="TEST TEST"/>
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@id/guidelineText"
+                app:layout_constraintTop_toBottomOf="@id/locationText" />
 
             <TextView
                 android:id="@+id/task_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/details_container"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:textColor="@color/textColor"
                 android:fontFamily="@font/montserrat"
+                android:text="Tasks"
+                android:textColor="@color/textColor"
                 android:textSize="15dp"
-                android:text="Tasks"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/details_container" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/task_scroll"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/task_title"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp">
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_title">
 
                 <LinearLayout
                     android:id="@+id/task_container"
@@ -297,24 +290,24 @@
                 android:id="@+id/taskList_addContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/task_scroll"
-                android:orientation="horizontal"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/task_scroll">
 
                 <EditText
                     android:id="@+id/task_text"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
-                    android:hint="Add task..."
-                    android:textColorHint="@color/colorPrimaryDark"
                     android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="@color/textColor"
                     android:fontFamily="@font/montserrat"
-                    android:textSize="12dp"/>
+                    android:hint="Add task..."
+                    android:textColor="@color/textColor"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:textSize="12dp" />
 
                 <Button
                     android:id="@+id/addTaskBtn"
@@ -322,10 +315,10 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/rounded_button"
+                    android:fontFamily="@font/montserrat"
                     android:text="ADD"
                     android:textColor="@color/textColor"
-                    android:fontFamily="@font/montserrat"
-                    android:textSize="12dp"/>
+                    android:textSize="12dp" />
 
             </LinearLayout>
 
@@ -333,25 +326,25 @@
                 android:id="@+id/title_milestones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/taskList_addContainer"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="15dp"
+                android:text="Milestones"
                 android:textColor="@color/textColor"
-                android:text="Milestones"/>
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/taskList_addContainer" />
 
             <androidx.core.widget.NestedScrollView
                 android:id="@+id/milestone_scroll"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_milestones"
-                android:layout_marginTop="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp">
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title_milestones">
 
                 <LinearLayout
                     android:id="@+id/milestone_container"
@@ -396,6 +389,13 @@
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="90dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
