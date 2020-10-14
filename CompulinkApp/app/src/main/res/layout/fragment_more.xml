@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
- <ScrollView
-    android:layout_width="match_parent"
+ <ScrollView xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
     android:isScrollContainer="true"
@@ -14,201 +14,27 @@
         app:layout_constraintEnd_toEndOf="@+id/more_title"
         app:layout_constraintStart_toEndOf="@+id/more_title">
 
-        <TextView
-            android:id="@+id/more_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/montserrat"
-            android:text="What would you like to do?"
-            android:textColor="@color/textColor"
-            android:textSize="15dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/profile_management_card"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/seeThrough"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/more_title">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_account_blue"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Profile Management"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/job_management_card"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="8dp"
-            app:cardBackgroundColor="@color/seeThrough"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/secondScroll"
+            android:layout_width="388dp"
+            android:layout_height="299dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/guideline8"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toBottomOf="@id/more_title">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_work_blue"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Job Management"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
+                android:orientation="vertical" />
+        </androidx.core.widget.NestedScrollView>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
+            android:id="@+id/guideline8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintGuide_percent="0.5"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/about_card"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/seeThrough"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/profile_management_card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_about"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="About"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/sales_card"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/seeThrough"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/job_management_card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_sales"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sales Management"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/facebookCard"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/seeThrough"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/about_card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_facebook"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Visit our Facebook"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/locationCard"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="16dp"
-            app:cardBackgroundColor="@color/seeThrough"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/sales_card">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_location_blue"
-                android:layout_gravity="center|top"
-                android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Where to find us"
-                android:textColor="@color/textColor"
-                android:fontFamily="@font/montserrat"
-                android:textSize="12dp"
-                android:layout_gravity="center|bottom"
-                android:layout_marginBottom="30dp"/>
-
-        </androidx.cardview.widget.CardView>
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="365dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
