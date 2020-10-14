@@ -1,0 +1,55 @@
+diff a/CompulinkApp/app/src/main/java/com/example/compulinkapp/fragments/MoreFragment.java b/CompulinkApp/app/src/main/java/com/example/compulinkapp/fragments/MoreFragment.java	(rejected hunks)
+@@ -36,52 +36,14 @@
+             ((ClientDashActivity) getActivity()).setActionBarTitle("More");
+         }
+         return inflater.inflate(R.layout.fragment_more, container, false);
++        
+     }
+ 
+     @Override
+     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+         super.onViewCreated(view, savedInstanceState);
+ 
+-        CardView profileManagement = view.findViewById(R.id.profile_management_card);
+-        CardView jobManagement = view.findViewById(R.id.job_management_card);
+-        CardView facebookLink = view.findViewById(R.id.facebookCard);
+-        CardView location = view.findViewById(R.id.locationCard);
+-        CardView sales = view.findViewById(R.id.sales_card);
+-        CardView about = view.findViewById(R.id.about_card);
+-        //Other cards still required and onClickListeners also required for each
+ 
+-        profileManagement.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).addToBackStack("Profile").commit();
+-            }
+-        });
+-
+-        jobManagement.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new JobFragment()).addToBackStack("Jobs").commit();
+-                //Job fragment to be replaced with job management when it has been added
+-            }
+-        });
+-
+-        sales.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new SalesFragment()).addToBackStack("Sales").commit();
+-            }
+-        });
+-
+-        about.setOnClickListener(new View.OnClickListener() {
+-            @Override
+-            public void onClick(View v) {
+-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+-                fragmentManager.beginTransaction().replace(R.id.fragment_container, new AboutFragment()).addToBackStack("About").commit();
+-            }
+-        });
+ 
+         /**
+          * On click of facebook link the link will open in the facebook app and take the user to

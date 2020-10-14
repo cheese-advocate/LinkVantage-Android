@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         //Get the shared preferences
         pref = getSharedPreferences("user_details", MODE_PRIVATE);
 
-        if(autoLogin(pref))
+        /*if(autoLogin(pref))
         {
             if(accountType.equalsIgnoreCase("client"))
             {
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), DashActivity.class);
                 startActivity(intent);
             }
-        }
+        }*/
 
         final TextView forgotPw = (TextView) findViewById(R.id.forgortPwLink);
 

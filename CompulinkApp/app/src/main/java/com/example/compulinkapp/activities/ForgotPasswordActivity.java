@@ -111,7 +111,8 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             else
                             {
                                 try {
-                                    Log.d("OTP Response:" ,"Entered OTP:" + otp + " , server returned OTP" + fetchOTP() );
+                                    Log.d("OTP Response:" ,"Entered OTP:" + otp + " , server returned is OTP valid:" + resetPassword() );
+                                //    Log.d("OTP Response:" ,"Entered OTP:" + otp + " , server returned OTP :" + fetchOTP() );
                                 } catch (ExecutionException e) {
                                     e.printStackTrace();
                                 } catch (InterruptedException e) {
@@ -121,7 +122,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                                 dialog.dismiss(); //Closes the dialog
                                 Intent newPassword = new Intent(getApplicationContext(), NewPasswordActivity.class);
                                 startActivity(newPassword); //Starts the new activity
-                                //App Activity Transitioning - END
+                                //App Activity Transitioning - .END
                             }
                         }
                     });
@@ -164,12 +165,12 @@ private String fetchOTP() throws ExecutionException, InterruptedException, Execu
     postVar = postVar   + "-"     + "email="       +  email    .getText()  .toString();
     //Constructing Post Variable - End
 
-    Conect testingConnection = new Conect();
+    Conect retrieveOTP = new Conect();
 
-    String testing = (String) testingConnection.execute(postVar).get();
-    Log.d("Testing Response:" ,"Fetch OTP Response:" + testing );
+    String returnOTP = (String) retrieveOTP.execute(postVar).get();
+    Log.d("Testing Response:" ,"Fetch OTP Response:" + returnOTP );
 
-    return testing;
+    return returnOTP;
 };
 //Retrieve OTP from server - END
 //Reset User Password - START
